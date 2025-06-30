@@ -1,5 +1,6 @@
 import React, { useState } from "react"; // Import useState for modal state
 import { useNavigate } from "react-router-dom";
+import "./BoardCard.css" 
 // Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
