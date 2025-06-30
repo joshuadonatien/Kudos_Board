@@ -7,7 +7,7 @@ function BoardCard ({board}){
                 <div className="info">
                     <p className="board-title">{board.title}</p>
                     <p className="board-category">{board.category}</p>
-                    <p className="board-img">{board.image_url}</p>
+                    <img className="board-img" src={board.image_url} alt="Board" />
                     <p className="board-author">{board.author}</p>
                 </div>
             </div>

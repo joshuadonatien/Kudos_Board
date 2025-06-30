@@ -1,31 +1,37 @@
 import SubNavbar from "./SearchBar/SubNavbar";
 import { BrowserRouter } from "react-router-dom";
-import "./App.css"
+import "./App.css";
+import BoardCard from "./components/BoardCard/BoardCard";
 
 function App() {
- 
-
-    return(
-        <div className="App">
-            {/* <BrowserRouter> */}
-            <main>
-             <SubNavbar
-            // activeCategory={activeCategory}
-            // setActiveCategory={setActiveCategory}
-            // searchInputValue={searchInputValue}
-            // handleOnSearchInputChange={handleOnSearchInputChange} 
-          />   
-          {/* <Routes>
+  return (
+    <div className="App">
+      {/* <BrowserRouter> */}
+      <main>
+        <SubNavbar
+        // activeCategory={activeCategory}
+        // setActiveCategory={setActiveCategory}
+        // searchInputValue={searchInputValue}
+        // handleOnSearchInputChange={handleOnSearchInputChange}
+        />
+        <BoardCard
+          board={{
+            title: "Title 1",
+            category: "Celebration",
+            image_url: "/assets/SampleImg.png",
+            author: "Camila",
+          }}
+        />
+        {/* <Routes>
             <Route>
                 
             </Route>
           </Routes> */}
-            </main>
-            
-            
-            {/* </BrowserRouter> */}
-        </div>
-    );
+      </main>
+
+      {/* </BrowserRouter> */}
+    </div>
+  );
 }
 
 export default App;
