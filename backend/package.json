@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "dev:backend": "node src/server.js",
+    "dev:frontend": "cd frontend && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +20,7 @@
   "homepage": "https://github.com/joshuadonatien/Kudos_Board#readme",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^6.10.1",
     "dotenv": "^17.0.0",
-    "express": "^5.1.0",
-    "prisma": "^6.10.1"
   }
 }
