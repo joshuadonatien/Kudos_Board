@@ -1,28 +1,28 @@
-import SubNavbar from "./components/SearchBar/SubNavbar";
-
+import SubNavbar from "./SearchBar/SubNavbar";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
  
 
     return(
-        <div class="App">
-            <BrowserRouter>
+        <div className="App">
+            {/* <BrowserRouter> */}
             <main>
              <SubNavbar
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            searchInputValue={searchInputValue}
-            handleOnSearchInputChange={handleOnSearchInputChange}
+            // activeCategory={activeCategory}
+            // setActiveCategory={setActiveCategory}
+            // searchInputValue={searchInputValue}
+            // handleOnSearchInputChange={handleOnSearchInputChange} 
           />   
-          <Routes>
+          {/* <Routes>
             <Route>
                 
             </Route>
-          </Routes>
+          </Routes> */}
             </main>
             
             
-            </BrowserRouter>
+            {/* </BrowserRouter> */}
         </div>
     );
 }
