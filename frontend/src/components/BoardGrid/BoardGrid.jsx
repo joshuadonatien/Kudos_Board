@@ -1,7 +1,7 @@
 import BoardCard from "../BoardCard/BoardCard";
 import "./BoardGrid.css" 
 
-function BoardGrid({ boards}){// might have to add delete and view
+function BoardGrid({ boards, isFetching}){// might have to add delete and view
     return (
         <div className="ProductGrid">
             <div className="content">
@@ -14,6 +14,7 @@ function BoardGrid({ boards}){// might have to add delete and view
                         <BoardCard
                         key={board.id}
                         board={board}
+                        onDelete={onDelete}
                         // might have to add delete and view
                         />
                     ))}
