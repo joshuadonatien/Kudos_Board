@@ -1,4 +1,4 @@
-const express = require ("express")
+const express = require ('express')
 const router = express.Router()
 const controller = require("../controllers/board-controller.js")
 
@@ -12,3 +12,5 @@ router.post("/", controller.createBoard)
 router.put("/:board_id", controller.updateBoard)
 // delete a board
 router.delete("/:board_id", controller.deleteBoard)
+
+module.exports = router
