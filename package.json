@@ -18,6 +18,8 @@
   "homepage": "https://github.com/joshuadonatien/Kudos_Board#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
     "prisma": "^6.10.1"
   }
 }
