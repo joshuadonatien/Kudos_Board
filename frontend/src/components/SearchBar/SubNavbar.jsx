@@ -1,12 +1,12 @@
-import "./SearchBar.css"
+import "./SubNavbar.css"
 
-function SearchBar({ activeCategory, setActiveCategory, searchInputValue, handleOnSearchInputChange }) {
+function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handleOnSearchInputChange }) {
 
 
   const categories = ["All ", "Recent", "Celebration", "Thank You", "Inspiration"];
 
   return (
-    <nav className="SubNavbar">
+    <nav className="SubNavBar">
 
       <div className="content">
 
