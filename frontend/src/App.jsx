@@ -1,4 +1,4 @@
-import SubNavbar from "./SearchBar/SubNavbar";
+import SubNavbar from "./components/SearchBar/SubNavbar";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import BoardCard from "./components/BoardCard/BoardCard";

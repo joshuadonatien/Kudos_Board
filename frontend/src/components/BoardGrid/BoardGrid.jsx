@@ -6,7 +6,7 @@ function BoardGrid({ boards, isFetching}){// might have to add delete and view
         <div className="ProductGrid">
             <div className="content">
                 <div className="grid"> 
-                    {!products?.length ? (
+                    {/* {!products?.length ? (
                         <div className="card">
                             <p>No boards available</p>
                         </div>
@@ -17,7 +17,7 @@ function BoardGrid({ boards, isFetching}){// might have to add delete and view
                         onDelete={onDelete}
                         // might have to add delete and view
                         />
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>
