@@ -1,43 +1,17 @@
 import React, { useState } from "react"; // Import useState for modal state
 import { useNavigate } from "react-router-dom";
 import "./BoardCard.css" 
-// Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
-function BoardCard({ board, onDelete }) {
-  const navigate = useNavigate();
-  const [showViewModal, setShowViewModal] = useState(false);
-  const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
-
-  const toggleViewModal = () => setShowViewModal(!showViewModal);
-  const toggleDeleteConfirmModal = () => setShowDeleteConfirmModal(!showDeleteConfirmModal);
-
-  const handleViewBoard = () => {
-    navigate(`/boards/${board.id}`);
-    // If you want the modal to open AND navigate, keep navigate.
-    // If you only want the modal to show board details without navigating, remove this line.
-  };
-  const handleConfirmDelete = () => {
-    onDelete(board.id);
-    toggleDeleteConfirmModal(); // Close the confirmation modal
-  };
-
-  return (
-    <div className="BoardCard">
-      <div className="board-info">
-        <div className="info">
-          <p className="board-title">{board.title}</p>
-          <p className="board-category">{board.category}</p>
-          {board.image_url && (
-            <img
-              src={board.image_url}
-              alt={board.title}
-              className="board-image"
-              onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x200/4B5563/D1D5DB?text=No+Image"; }}
-            />
-          )}
-          {!board.image_url && (
-            <div className="board-image-placeholder">
-              No Image
+function BoardCard ({board}){
+    return(
+        <div className="BoardCard">
+            <div className="board-info">
+                <div className="info">
+                    <p className="board-title">{board.title}</p>
+                    <p className="board-category">{board.category}</p>
+                    <img className="board-img" src={board.image_url} alt="Board" />
+                    <p className="board-author">{board.author}</p>
+                </div>
             </div>
           )}
           <p className="board-author">By: {board.author}</p>

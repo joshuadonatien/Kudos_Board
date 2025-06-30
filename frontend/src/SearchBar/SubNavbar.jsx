@@ -15,11 +15,12 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
             <input
               type="text"
               name="search"
-              placeholder="Search"
+              placeholder="Search Boards..."
               value={searchInputValue}
               onChange={handleOnSearchInputChange}
             />
-            <i className="material-icons">search</i>
+            <button className="material-icons"> Search </button>
+            <button className="material-icons"> Clear </button>
           </div>
         </div>
 
@@ -32,7 +33,9 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
             ))}
           </ul>
         </div>
-        
+        <div className="create-board">
+          <button className="create-button"> Create New Board</button>
+        </div>
       </div>
     </nav>
   )
