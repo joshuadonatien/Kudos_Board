@@ -18,7 +18,7 @@ return (
         <BoardGrid
     boards={boardsToShow}
     isFetching={isFetching}
-    
+    // Give space to add more functions
     />
     </div>
     
