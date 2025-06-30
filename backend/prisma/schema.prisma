@@ -14,3 +14,12 @@ model Board {
     category        String
     author          String?
 }
+
+model Card {
+    card_id         Int     @id @default(autoincrement())
+    title           String
+    description     String
+    gif_url         String
+    upvotes         Int
+    owner           String?
+}
