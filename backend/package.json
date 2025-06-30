@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev:backend": "node backend/src/server.js",
+    "dev:backend": "node src/server.js",
     "dev:frontend": "cd frontend && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,6 +22,6 @@
   "dependencies": {
     "@prisma/client": "^6.10.1",
     "dotenv": "^17.0.0",
-    "express": "^5.1.0",
+    "express": "^5.1.0"
   }
 }
