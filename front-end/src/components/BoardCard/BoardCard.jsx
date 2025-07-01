@@ -44,7 +44,7 @@ function BoardCard({ board, onDelete }) {
       </div>
       <div className="actions">
         <div className="buttons">
-          <button className="view-btn" onClick={() => handleViewBoard}>
+          <button className="view-btn" onClick={handleViewBoard}>
             View Board
           </button>
           {/* Button to open the Delete Confirmation Modal */}

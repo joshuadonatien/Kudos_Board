@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Card from '../Card/Card.jsx';
 import CreateCardModal from '../CreateCardModal/CreateCardModal.jsx'; 
-// import './BoardDetail.css'; // You might want to create a BoardDetail.css if needed
+import './BoardDetail.css'; // You might want to create a BoardDetail.css if needed
 
 function BoardDetail() {
   const { boardId } = useParams();
@@ -18,10 +18,10 @@ function BoardDetail() {
     const fetchBoardAndCards = async () => {
       try {
         setIsFetching(true);
-        const boardRes = await axios.get(`http://localhost:3001/boards/${boardId}`);
+        const boardRes = await axios.get(`http://localhost:3000/boards/${boardId}`);
         setBoard(boardRes.data);
 
-        const cardsRes = await axios.get(`http://localhost:3001/boards/${boardId}/cards`);
+        const cardsRes = await axios.get(`http://localhost:3000/boards/${boardId}/cards`);
         setCards(cardsRes.data);
 
         setError(null);
@@ -42,7 +42,7 @@ function BoardDetail() {
 
   const handleCreateCard = async (newCardData) => {
     try {
-      const response = await axios.post(`http://localhost:3001/boards/${boardId}/cards`, newCardData);
+      const response = await axios.post(`http://localhost:3000/boards/${boardId}/cards`, newCardData);
       setCards([...cards, response.data]);
       toggleCreateCardModal();
     } catch (err) {
@@ -53,7 +53,7 @@ function BoardDetail() {
 
   const handleDeleteCard = async (cardIdToDelete) => {
     try {
-      await axios.delete(`http://localhost:3001/cards/${cardIdToDelete}`);
+      await axios.delete(`http://localhost:3000/cards/${cardIdToDelete}`);
       setCards(cards.filter(card => card.id !== cardIdToDelete));
     } catch (err) {
       console.error("Error deleting card:", err);
@@ -63,7 +63,7 @@ function BoardDetail() {
 
   const handleUpvoteCard = async (cardIdToUpvote) => {
     try {
-      const response = await axios.patch(`http://localhost:3001/cards/${cardIdToUpvote}/upvote`);
+      const response = await axios.patch(`http://localhost:3000/cards/${cardIdToUpvote}/upvote`);
       setCards(cards.map(card =>
         card.id === cardIdToUpvote ? { ...card, upvotes: response.data.upvotes } : card
       ));
