@@ -11,6 +11,7 @@ function BoardCard({ board, onDelete }) {
 
   const handleViewBoard = () => {
     //navigate(`/boards/${board.id}`);
+    console.log("Tried to view the board")
   };
   const handleConfirmDelete = () => {
     onDelete(board.id);
@@ -43,7 +44,7 @@ function BoardCard({ board, onDelete }) {
         <div className="buttons">
           <button
             className="view-btn"
-            onClick={() => handleViewBoard} 
+            onClick={ handleViewBoard} 
           >
             View Board
           </button>
