@@ -2,8 +2,24 @@ const prisma = require("../models/prisma-client")
 
 //grabbing all of the boards
 exports.getAllBoards = async(req, res) => {
+    let {category, title} = req.query
     let boards = await prisma.board.findMany()
+
+    if(category) {
+        boards = boards.filter((b) => {
+            return b.category.toLowerCase().includes(category.toLowerCase())
+        })
+    }
+
+    if(title) {
+        boards = boards.filter((b) => {
+            return b.title.toLowerCase().includes(title.toLowerCase())
+        })
+    }
+
     res.json(boards)
+
+
 }
 
 //grabbing a specific board
