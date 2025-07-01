@@ -1,9 +1,20 @@
-import "./SubNavbar.css"
+import "./SubNavbar.css";
 
 import React, { useState } from "react"; // Import useState for modal and form state
 
-function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handleOnSearchInputChange }) {
-  const categories = ["All ", "Recent", "Celebration", "Thank You", "Inspiration"];
+function SubNavbar({
+  activeCategory,
+  setActiveCategory,
+  searchInputValue,
+  handleOnSearchInputChange,
+}) {
+  const categories = [
+    "All ",
+    "Recent",
+    "Celebration",
+    "Thank You",
+    "Inspiration",
+  ];
 
   // State for controlling the visibility of the "Create New Board" modal
   const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
@@ -23,19 +34,23 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
   };
 
   const handleCreateBoardSubmit = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    if (!newBoardTitle.trim() || !newBoardCategory.trim() || !newBoardAuthor.trim() || !newBoardImage_url.trim()) {
+    if (
+      !newBoardTitle.trim() ||
+      !newBoardCategory.trim() ||
+      !newBoardAuthor.trim() ||
+      !newBoardImage_url.trim()
+    ) {
       alert("Please fill in all required fields (Title, Category, Author)."); // Consider a custom modal for alerts
       return;
     }
-    
+
     console.log("New Board Data:", {
       title: newBoardTitle,
       category: newBoardCategory,
       author: newBoardAuthor,
-      image_url: newBoardImage_url
-      
+      image_url: newBoardImage_url,
     });
     toggleCreateBoardModal();
   };
@@ -60,7 +75,12 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
         <div className="row">
           <ul className={`category-menu`}>
             {categories.map((cat) => (
-              <li className={activeCategory === cat ? "is-active" : ""} key={cat}>
+              <li
+                className={`${cat.toLowerCase()} ${
+                  activeCategory === cat ? "is-active" : ""
+                }`}
+                key={cat}
+              >
                 <button onClick={() => setActiveCategory(cat)}>{cat}</button>
               </li>
             ))}
@@ -77,15 +97,26 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
       {/* Create New Board Modal */}
       {showCreateBoardModal && (
         <div className="modal-overlay">
-          <div className="create-board-modal-content" onClick={(e) => e.stopPropagation()}>
+            {/* Close button for the modal */}
+            <button className="close-button" onClick={toggleCreateBoardModal}>
+              &times;
+            </button>
+          <div
+            className="create-board-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h2 className="modal-title">Create a New Board</h2>
 
-            <form onSubmit={handleCreateBoardSubmit} className="create-board-form">
+            <form
+              onSubmit={handleCreateBoardSubmit}
+              className="create-board-form"
+            >
               <div className="form-group">
                 <label htmlFor="newBoardTitle">Title:</label>
                 <input
                   type="text"
                   id="newBoardTitle"
+                  placeholder='Like "Birthdays" or "Work"'
                   value={newBoardTitle}
                   onChange={(e) => setNewBoardTitle(e.target.value)}
                   required
@@ -96,15 +127,20 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
                 <label htmlFor="newBoardCategory">Category:</label>
                 <select
                   id="newBoardCategory"
+                  className={`category-select ${newBoardCategory ? `select-${newBoardCategory.toLowerCase().replace(/\s+/g, '-')}` : ''}`}
                   value={newBoardCategory}
                   onChange={(e) => setNewBoardCategory(e.target.value)}
                   required
                 >
                   <option value="">Select a category</option>
                   {/* Filter out "All" category if it's not a real category for new boards */}
-                  {categories.filter(cat => cat !== "All ").map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
-                  ))}
+                  {categories
+                    .filter((cat) => cat !== "All ")
+                    .map((cat) => (
+                      <option key={cat} value={cat}>
+                        {cat}
+                      </option>
+                    ))}
                 </select>
               </div>
 
@@ -124,10 +160,6 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
               </button>
             </form>
 
-            {/* Close button for the modal */}
-            <button className="close-button" onClick={toggleCreateBoardModal}>
-              &times;
-            </button>
           </div>
         </div>
       )}

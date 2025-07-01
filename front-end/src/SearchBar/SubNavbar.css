@@ -1,3 +1,7 @@
+.dm-sans-font {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+}
 h1 {
   display: flex;
   align-items: center;
@@ -9,7 +13,9 @@ input {
   height: 2rem;
   margin-right: 1rem;
   justify-content: center;
+  font-family: "DM Sans", sans-serif;
 }
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -23,6 +29,7 @@ input {
   align-items: center;
   justify-content: center;
 }
+
 button {
   background-color: #6a994e;
   border-radius: 0.5rem;
@@ -30,10 +37,15 @@ button {
   padding: 0.3rem;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
+  border-color: transparent;
+  font-family: "DM Sans", sans-serif;
 }
+/* Search and Clear Buttons */
 .material-icons {
-  background-color: #bc4749;
+  background-color: #fffefe;
   margin: 0.3rem;
+  border-color: #d0d0d0;
+  font-size: 1rem;
 }
 
 .create-board {
@@ -42,6 +54,116 @@ button {
   justify-content: center;
 }
 
-.create-button{
-    background-color: #386641;
+/* SubNav Bar Category and Create Buttons */
+
+.create-button {
+  background-color: #da6c6c;
+  border-color: #010101;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.all button {
+  background-color: #fad9fd;
+  font-size: 1.3rem;
+}
+.recent button {
+  background-color: #fff9c4;
+  font-size: 1.3rem;
+}
+
+.celebration button {
+  background-color: #cff5e7;
+  font-size: 1.3rem;
+}
+
+.thank.you button {
+  background-color: #d8c8ff;
+  font-size: 1.3rem;
+}
+
+.inspiration button {
+  background-color: #ffddc1;
+  font-size: 1.3rem;
+}
+/* SubNavBar Buttons Hover */
+.create-button:hover {
+  background-color: #bc5d5d;
+}
+.all button:hover {
+  background-color: #cfb5d1;
+}
+.recent button:hover {
+  background-color: #d0cca2;
+}
+
+.celebration button:hover {
+  background-color: #a6c5b9;
+}
+
+.thank.you button:hover {
+  background-color: #aa9ec8;
+}
+
+.inspiration button:hover {
+  background-color: #d7b9a1;
+}
+
+/* DropDown Menu Modal*/
+
+.create-board-modal-content {
+  font-family: "DM Sans", sans-serif;
+}
+
+.select-recent {
+  background-color: #fff9c4;
+}
+
+.select-celebration {
+  background-color: #cff5e7;
+}
+
+.select-thank-you {
+  background-color: #d8c8ff;
+}
+
+.select-inspiration {
+  background-color: #ffddc1;
+}
+
+.form-group {
+  margin: 0.5rem;
+}
+
+#newBoardTitle {
+  margin-left: 0.4rem;
+}
+
+#newBoardCategory {
+  margin-left: 0.4rem;
+  height: 2rem;
+  width: 10rem;
+  font-family: "DM Sans", sans-serif;
+  border-radius: 0.3rem;
+}
+
+#newBoardAuthor {
+  margin-left: 0.4rem;
+}
+
+.create-board-submit-btn {
+  background-color: #da6c6c;
+  border-color: #010101;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.close-button {
+  background-color: #da6c6c;
+  border-color: #010101;
+  font-size: 2rem;
+  padding: 0.5rem;
+  padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
 }

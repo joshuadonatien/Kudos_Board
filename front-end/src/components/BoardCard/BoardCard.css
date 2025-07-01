@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "DM Sans", sans-serif;
 }
 
 .board-title {
@@ -30,22 +31,31 @@
   margin: 0;
 }
 
-.board-author{
-font-size: 1.3rem;
-  margin:1rem;
+.board-author {
+  font-size: 1.3rem;
+  margin: 1rem;
   margin-bottom: 0.2rem;
 }
-.view-btn{
-    font-size:1rem;
-    margin: 0.5rem;
+.view-btn {
+  font-size: 1rem;
+  margin: 0.5rem;
+  background-color: #80c9e7;
+}
+.view-btn:hover {
+  background-color: #619ab0;
 }
 
-.delete-btn{
-    font-size:1rem;
-    margin: 0.5rem;
+.delete-btn {
+  font-size: 1rem;
+  margin: 0.5rem;
+  background-color: #ffd5d1;
 }
 
-img{
-    border-radius: 1rem;
-    width:12rem;
+.delete-btn:hover{
+  background-color: #d4b2af;
+}
+
+img {
+  border-radius: 1rem;
+  width: 12rem;
 }
