@@ -1,17 +1,16 @@
+//import { useNavigate } from 'react-router-dom';
 import React, { useState } from "react"; // Import useState for modal state
 // Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
-  const [showViewModal, setShowViewModal] = useState(false);
+  // const [showViewModal, setShowViewModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
-
-  const toggleViewModal = () => setShowViewModal(!showViewModal);
-  const toggleDeleteConfirmModal = () => setShowDeleteConfirmModal(!showDeleteConfirmModal);
+  //const navigate = useNavigate();
+  //  const toggleViewModal = () => setShowViewModal(!showViewModal);
+   const toggleDeleteConfirmModal = () => setShowDeleteConfirmModal(!showDeleteConfirmModal);
 
   const handleViewBoard = () => {
-    navigate(`/boards/${board.id}`);
-    // If you want the modal to open AND navigate, keep navigate.
-    // If you only want the modal to show board details without navigating, remove this line.
+    //navigate(`/boards/${board.id}`);
   };
   const handleConfirmDelete = () => {
     onDelete(board.id);
@@ -44,7 +43,7 @@ function BoardCard({ board, onDelete }) {
         <div className="buttons">
           <button
             className="view-btn"
-            onClick={() => console.log('yes')} 
+            onClick={() => handleViewBoard} 
           >
             View Board
           </button>
@@ -59,7 +58,7 @@ function BoardCard({ board, onDelete }) {
       </div>
 
       {/* View Board Modal */}
-      {showViewModal && (
+      {/* {showViewModal && (
         <div className="modal-overlay">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2 className="modal-title">{board.title}</h2>
@@ -73,7 +72,6 @@ function BoardCard({ board, onDelete }) {
             )}
             <p className="modal-category"><strong>Category:</strong> {board.category}</p>
             <p className="modal-author"><strong>Author:</strong> {board.author}</p>
-            {/* Add more board details here if available in the 'board' prop */}
             <p className="modal-description">
               This is a detailed view of the board. You can add more information here
               like description, creation date, etc., if your `board` object contains them.
@@ -86,7 +84,7 @@ function BoardCard({ board, onDelete }) {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirmModal && (

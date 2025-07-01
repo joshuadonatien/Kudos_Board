@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Card from '../components/Card/Card.jsx'; // FIX: Adjusted path to Card component
-import CreateCardModal from '../components/CreateCardModal/CreateCardModal.jsx'; 
+import Card from '../Card/Card.jsx';
+import CreateCardModal from '../CreateCardModal/CreateCardModal.jsx'; 
 // import './BoardDetail.css'; // You might want to create a BoardDetail.css if needed
 
 function BoardDetail() {
