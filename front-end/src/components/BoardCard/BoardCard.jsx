@@ -1,9 +1,7 @@
 import React, { useState } from "react"; // Import useState for modal state
-import { useNavigate } from "react-router-dom";
 // Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
-  const navigate = useNavigate();
   const [showViewModal, setShowViewModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
 
@@ -46,7 +44,7 @@ function BoardCard({ board, onDelete }) {
         <div className="buttons">
           <button
             className="view-btn"
-            onClick={handle} 
+            onClick={() => console.log('yes')} 
           >
             View Board
           </button>

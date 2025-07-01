@@ -1,4 +1,4 @@
-const prisma= require("../models/prisma-client")
+const prisma = require("../models/prisma-client")
 
 //grabbing all of the boards
 exports.getAllBoards = async(req, res) => {
@@ -8,8 +8,8 @@ exports.getAllBoards = async(req, res) => {
 
 //grabbing a specific board
 exports.getBoardById = async (req, res) => {
-    const id = Number(req.params.board_id)
-    const board = await prisma.board.findUnique({where: {id}})
+    const board_id = Number(req.params.board_id)
+    const board = await prisma.board.findUnique({where: {board_id}})
 
     if(!board) {
         return res.status(404).json({error:"not found"})
@@ -48,7 +48,7 @@ exports.updateBoard = async (req, res) => {
 exports.deleteBoard = async (req,res) => {
     const id = Number(req.params.board_id)
 
-    await prisma.board.delete({where:{id: id}})
+    await prisma.board.delete({where:{board_id: id}})
     res.status(204).end()
 }
 
