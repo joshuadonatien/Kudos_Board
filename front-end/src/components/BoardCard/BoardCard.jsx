@@ -1,20 +1,20 @@
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react"; // Import useState for modal state
 import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
   // const [showViewModal, setShowViewModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   //  const toggleViewModal = () => setShowViewModal(!showViewModal);
   const toggleDeleteConfirmModal = () =>
     setShowDeleteConfirmModal(!showDeleteConfirmModal);
 
   const handleViewBoard = () => {
-    //navigate(`/boards/${board.id}`);
+    navigate(`/boards/${board.board_id}`);
   };
   const handleConfirmDelete = () => {
-    onDelete(board.id);
+    onDelete(board.board_id);
     toggleDeleteConfirmModal(); // Close the confirmation modal
   };
 
@@ -44,7 +44,7 @@ function BoardCard({ board, onDelete }) {
       </div>
       <div className="actions">
         <div className="buttons">
-          <button className="view-btn" onClick={() => handleViewBoard}>
+          <button className="view-btn" onClick={handleViewBoard}>
             View Board
           </button>
           {/* Button to open the Delete Confirmation Modal */}
@@ -115,6 +115,7 @@ function BoardCard({ board, onDelete }) {
                 Delete
               </button>
             </div>
+
           </div>
         </div>
       )}

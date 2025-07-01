@@ -19,10 +19,13 @@ function App() {
 
   // Fetch boards on mount
   useEffect(() => {
+    console.log("GRABBING THE BOARDS");
+    console.log(boards.data);
     const fetchBoards = async () => {
       try {
         setIsFetchingBoards(true);
-        const response = await axios.get("http://localhost:3001/boards");
+        const response = await axios.get("http://localhost:3000/boards");
+        console.log(response.data);
         setBoards(response.data);
         setBoardsError(null);
       } catch (err) {
@@ -77,7 +80,7 @@ function App() {
   const handleCreateBoard = async (newBoardData) => {
     try {
       const response = await axios.post(
-        "http://localhost:3001/boards",
+        "http://localhost:3000/boards",
         newBoardData
       );
       setBoards([...boards, response.data]);
@@ -88,9 +91,10 @@ function App() {
   };
 
   const handleDeleteBoard = async (boardIdToDelete) => {
+    console.log("board id: ", boardIdToDelete);
     try {
-      await axios.delete(`http://localhost:3001/boards/${boardIdToDelete}`);
-      setBoards(boards.filter((board) => board.id !== boardIdToDelete));
+      await axios.delete(`http://localhost:3000/boards/${boardIdToDelete}`);
+      setBoards(boards.filter((board) => board.board_id !== boardIdToDelete));
     } catch (err) {
       console.error("Error deleting board:", err);
       alert("Failed to delete board. Please try again.");
@@ -138,7 +142,7 @@ function App() {
         />
         </div>
 
-        {/* <Routes>
+          <Routes>
             <Route
               path="/"
               element={
@@ -151,9 +155,9 @@ function App() {
               }
             />
             <Route path="/boards/:boardId" element={<BoardDetail />} />
-          </Routes> */}
-      </main>
-      {/* </BrowserRouter>  */}
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }
