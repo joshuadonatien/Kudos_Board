@@ -44,7 +44,7 @@ function BoardCard({ board, onDelete }) {
         <div className="buttons">
           <button
             className="view-btn"
-            onClick={() => handleViewBoard} 
+            onClick={ handleViewBoard} 
           >
             View Board
           </button>

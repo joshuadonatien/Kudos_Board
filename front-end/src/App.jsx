@@ -24,7 +24,7 @@ function App() {
     const fetchBoards = async () => {
       try {
         setIsFetchingBoards(true)
-        const response = await axios.get("http://localhost:3001/boards")
+        const response = await axios.get("http://localhost:3000/boards")
         setBoards(response.data)
         setBoardsError(null)
       } catch (err) {
@@ -78,7 +78,7 @@ function App() {
 
   const handleCreateBoard = async (newBoardData) => {
     try {
-      const response = await axios.post("http://localhost:3001/boards", newBoardData)
+      const response = await axios.post("http://localhost:3000/boards", newBoardData)
       setBoards([...boards, response.data])
     } catch (err) {
       console.error("Error creating board:", err)
@@ -88,7 +88,7 @@ function App() {
 
   const handleDeleteBoard = async (boardIdToDelete) => {
     try {
-      await axios.delete(`http://localhost:3001/boards/${boardIdToDelete}`)
+      await axios.delete(`http://localhost:3000/boards/${boardIdToDelete}`)
       setBoards(boards.filter((board) => board.id !== boardIdToDelete))
     } catch (err) {
       console.error("Error deleting board:", err)
