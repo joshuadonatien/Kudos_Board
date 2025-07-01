@@ -13,6 +13,7 @@ model Board {
     image_url       String
     category        String
     author          String?
+    cardList        Card[]
 }
 
 model Card {
@@ -22,4 +23,6 @@ model Card {
     gif_url         String
     upvotes         Int
     owner           String?
+    board_id        Int
+    board           Board? @relation(fields: [board_id], references: [board_id])
 }
