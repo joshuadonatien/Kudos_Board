@@ -2,8 +2,22 @@ import React, { useState } from "react";
 import "./SubNavbar.css"; // This import caused a "Could not resolve" error.
 
 // Added onCreateBoard prop
-function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handleOnSearchInputChange, onSearchSubmit, onClearSearch, onCreateBoard }) {
-  const categories = ["All ", "Recent", "Celebration", "Thank You", "Inspiration"];
+function SubNavbar({
+  activeCategory,
+  setActiveCategory,
+  searchInputValue,
+  handleOnSearchInputChange,
+  onSearchSubmit,
+  onClearSearch,
+  onCreateBoard,
+}) {
+  const categories = [
+    "All ",
+    "Recent",
+    "Celebration",
+    "Thank You",
+    "Inspiration",
+  ];
 
   // State for controlling the visibility of the "Create New Board" modal
   const [showCreateBoardModal, setShowCreateBoardModal] = useState(false);
@@ -46,7 +60,9 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
       title: newBoardTitle,
       category: newBoardCategory,
       author: newBoardAuthor,
-      image_url: newBoardImage_url || "https://placehold.co/400x300/cccccc/333333?text=Board+Image", // Provide a default if optional
+      image_url:
+        newBoardImage_url ||
+        "https://placehold.co/400x300/cccccc/333333?text=Board+Image", // Provide a default if optional
     });
 
     toggleCreateBoardModal(); // Close the modal after submission
@@ -63,16 +79,23 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
               placeholder="Search Boards..."
               value={searchInputValue}
               onChange={handleOnSearchInputChange}
-              onKeyPress={(e) => { // NEW: Handle Enter key for search
-                if (e.key === 'Enter') {
+              onKeyPress={(e) => {
+                // NEW: Handle Enter key for search
+                if (e.key === "Enter") {
                   onSearchSubmit();
                 }
               }}
             />
             {/* NEW: onClick handler for Search button */}
-            <button className="material-icons" onClick={onSearchSubmit}> Search </button>
+            <button className="material-icons" onClick={onSearchSubmit}>
+              {" "}
+              Search{" "}
+            </button>
             {/* NEW: onClick handler for Clear button */}
-            <button className="material-icons" onClick={onClearSearch}> Clear </button>
+            <button className="material-icons" onClick={onClearSearch}>
+              {" "}
+              Clear{" "}
+            </button>
           </div>
         </div>
 
@@ -100,22 +123,22 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
       {/* Create New Board Modal */}
       {showCreateBoardModal && (
         <div className="modal-overlay">
-            {/* Close button for the modal */}
-            <button className="close-button" onClick={toggleCreateBoardModal}>
-              &times;
-            </button>
           <div
             className="create-board-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button for the modal */}
+            <button className="close-button" onClick={toggleCreateBoardModal}>
+              &times;
+            </button>
             <h2 className="modal-title">Create a New Board</h2>
 
             <form
               onSubmit={handleCreateBoardSubmit}
               className="create-board-form"
             >
+              <label htmlFor="newBoardTitle">Title:</label>
               <div className="form-group">
-                <label htmlFor="newBoardTitle">Title:</label>
                 <input
                   type="text"
                   id="newBoardTitle"
@@ -130,7 +153,13 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
                 <label htmlFor="newBoardCategory">Category:</label>
                 <select
                   id="newBoardCategory"
-                  className={`category-select ${newBoardCategory ? `select-${newBoardCategory.toLowerCase().replace(/\s+/g, '-')}` : ''}`}
+                  className={`category-select ${
+                    newBoardCategory
+                      ? `select-${newBoardCategory
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}`
+                      : ""
+                  }`}
                   value={newBoardCategory}
                   onChange={(e) => setNewBoardCategory(e.target.value)}
                   required
@@ -147,8 +176,8 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
                 </select>
               </div>
 
+              <label htmlFor="newBoardAuthor">Author:</label>
               <div className="form-group">
-                <label htmlFor="newBoardAuthor">Author:</label>
                 <input
                   type="text"
                   id="newBoardAuthor"
@@ -159,8 +188,8 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
               </div>
 
               {/* NEW: Input for Image URL */}
+              <label htmlFor="newBoardImage_url">Image URL (optional):</label>
               <div className="form-group">
-                <label htmlFor="newBoardImage_url">Image URL (optional):</label>
                 <input
                   type="text"
                   id="newBoardImage_url"
@@ -170,15 +199,12 @@ function SubNavbar({ activeCategory, setActiveCategory, searchInputValue, handle
                 />
               </div>
 
-              <button type="submit" className="create-board-submit-btn">
-                Create Board
-              </button>
+              <div className="create-board-submit-containter">
+                <button type="submit" className="create-board-submit-btn">
+                  Create Board
+                </button>
+              </div>
             </form>
-
-            {/* Close button for the modal */}
-            <button className="close-button" onClick={toggleCreateBoardModal}>
-              &times;
-            </button>
           </div>
         </div>
       )}
