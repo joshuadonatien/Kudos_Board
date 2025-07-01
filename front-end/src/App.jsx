@@ -19,10 +19,13 @@ function App() {
 
   // Fetch boards on mount
   useEffect(() => {
+    console.log("GRABBING THE BOARDS");
+    console.log(boards.data);
     const fetchBoards = async () => {
       try {
         setIsFetchingBoards(true);
         const response = await axios.get("http://localhost:3000/boards");
+        console.log(response.data);
         setBoards(response.data);
         setBoardsError(null);
       } catch (err) {
@@ -99,29 +102,29 @@ function App() {
 
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
-      <main>
-        <SubNavbar
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
-          searchInputValue={searchInputValue}
-          handleOnSearchInputChange={handleOnSearchInputChange}
-          onSearchSubmit={handleSearchSubmit}
-          onClearSearch={handleClearSearch}
-          onCreateBoard={handleCreateBoard}
-        />
-        <BoardCard
-          board={{
-            title: "Title 1",
-            category: "Celebration",
-            image_url: "/assets/SampleImg.png",
-            author: "Camila",
-          }}
-        />
+      <BrowserRouter>
+        <main>
+          <SubNavbar
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            searchInputValue={searchInputValue}
+            handleOnSearchInputChange={handleOnSearchInputChange}
+            onSearchSubmit={handleSearchSubmit}
+            onClearSearch={handleClearSearch}
+            onCreateBoard={handleCreateBoard}
+          />
+          {/* <BoardCard
+            board={{
+              title: "Title 1",
+              category: "Celebration",
+              image_url: "/assets/SampleImg.png",
+              author: "Camila",
+            }}
+          /> */}
 
-        {/* <Routes>
+          <Routes>
             <Route
-              path="/"
+              path="/boards"
               element={
                 <Home
                   boards={filteredBoards}
@@ -132,9 +135,9 @@ function App() {
               }
             />
             <Route path="/boards/:boardId" element={<BoardDetail />} />
-          </Routes> */}
-      </main>
-      {/* </BrowserRouter>  */}
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }

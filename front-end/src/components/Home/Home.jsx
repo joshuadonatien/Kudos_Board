@@ -1,10 +1,11 @@
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-import SubNavbar from '../../SearchBar/SubNavbar';
+import SubNavbar from "../../SearchBar/SubNavbar";
 import BoardGrid from "../BoardGrid/BoardGrid";
-import "./Home.css"
+import "./Home.css";
 
 function Home({ boards, isFetching, error, onDelete }) {
+  console.log(boards.data);
   return (
     <div className="Home">
       {isFetching ? (
@@ -15,7 +16,7 @@ function Home({ boards, isFetching, error, onDelete }) {
         <BoardGrid boards={boards} onDelete={onDelete} />
       )}
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
