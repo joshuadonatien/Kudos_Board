@@ -22,10 +22,9 @@ function App() {
             author: "Camila",
           }}
         />
-        {/* <Routes>
-            <Route>
-                
-            </Route>
+          {/* <Routes> 
+            <Route path="/" element={<Home />} /> 
+            <Route path="/boards/:boardId" element={<BoardDetail />} /> 
           </Routes> */}
       </main>
 
