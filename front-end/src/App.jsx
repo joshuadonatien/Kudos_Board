@@ -91,9 +91,10 @@ function App() {
   };
 
   const handleDeleteBoard = async (boardIdToDelete) => {
+    console.log("board id: ", boardIdToDelete);
     try {
       await axios.delete(`http://localhost:3000/boards/${boardIdToDelete}`);
-      setBoards(boards.filter((board) => board.id !== boardIdToDelete));
+      setBoards(boards.filter((board) => board.board_id !== boardIdToDelete));
     } catch (err) {
       console.error("Error deleting board:", err);
       alert("Failed to delete board. Please try again.");

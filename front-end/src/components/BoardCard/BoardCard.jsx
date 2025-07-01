@@ -7,13 +7,14 @@ function BoardCard({ board, onDelete }) {
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
   //const navigate = useNavigate();
   //  const toggleViewModal = () => setShowViewModal(!showViewModal);
-   const toggleDeleteConfirmModal = () => setShowDeleteConfirmModal(!showDeleteConfirmModal);
+  const toggleDeleteConfirmModal = () =>
+    setShowDeleteConfirmModal(!showDeleteConfirmModal);
 
   const handleViewBoard = () => {
     //navigate(`/boards/${board.id}`);
   };
   const handleConfirmDelete = () => {
-    onDelete(board.id);
+    onDelete(board.board_id);
     toggleDeleteConfirmModal(); // Close the confirmation modal
   };
 
@@ -28,23 +29,22 @@ function BoardCard({ board, onDelete }) {
               src={board.image_url}
               alt={board.title}
               className="board-image"
-              onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x200/4B5563/D1D5DB?text=No+Image"; }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://placehold.co/300x200/4B5563/D1D5DB?text=No+Image";
+              }}
             />
           )}
           {!board.image_url && (
-            <div className="board-image-placeholder">
-              No Image
-            </div>
+            <div className="board-image-placeholder">No Image</div>
           )}
           <p className="board-author">By: {board.author}</p>
         </div>
       </div>
       <div className="actions">
         <div className="buttons">
-          <button
-            className="view-btn"
-            onClick={() => handleViewBoard} 
-          >
+          <button className="view-btn" onClick={() => handleViewBoard}>
             View Board
           </button>
           {/* Button to open the Delete Confirmation Modal */}
@@ -89,9 +89,14 @@ function BoardCard({ board, onDelete }) {
       {/* Delete Confirmation Modal */}
       {showDeleteConfirmModal && (
         <div className="modal-overlay">
-          <div className="confirm-modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="confirm-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <h3 className="confirm-modal-title">Confirm Deletion</h3>
-            <p className="confirm-modal-message">Are you sure you want to delete the board "{board.title}"?</p>
+            <p className="confirm-modal-message">
+              Are you sure you want to delete the board "{board.title}"?
+            </p>
             <div className="confirm-buttons">
               <button
                 className="confirm-cancel-btn"
@@ -106,10 +111,7 @@ function BoardCard({ board, onDelete }) {
                 Delete
               </button>
             </div>
-            <button
-              className="close-button"
-              onClick={toggleDeleteConfirmModal}
-            >
+            <button className="close-button" onClick={toggleDeleteConfirmModal}>
               &times;
             </button>
           </div>
