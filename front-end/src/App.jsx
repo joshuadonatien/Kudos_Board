@@ -113,18 +113,10 @@ function App() {
             onClearSearch={handleClearSearch}
             onCreateBoard={handleCreateBoard}
           />
-          {/* <BoardCard
-            board={{
-              title: "Title 1",
-              category: "Celebration",
-              image_url: "/assets/SampleImg.png",
-              author: "Camila",
-            }}
-          /> */}
 
           <Routes>
             <Route
-              path="/boards"
+              path="/"
               element={
                 <Home
                   boards={filteredBoards}
