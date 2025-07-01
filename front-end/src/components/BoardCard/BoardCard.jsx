@@ -1,17 +1,17 @@
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react"; // Import useState for modal state
 // Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
   // const [showViewModal, setShowViewModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   //  const toggleViewModal = () => setShowViewModal(!showViewModal);
   const toggleDeleteConfirmModal = () =>
     setShowDeleteConfirmModal(!showDeleteConfirmModal);
 
   const handleViewBoard = () => {
-    //navigate(`/boards/${board.id}`);
+    navigate(`/boards/${board.board_id}`);
   };
   const handleConfirmDelete = () => {
     onDelete(board.board_id);
