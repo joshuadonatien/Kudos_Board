@@ -1,0 +1,29 @@
+.card-content {
+  background-color: aliceblue;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 20rem; */
+}
+
+.card-actions {
+  background-color: aliceblue;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upvote-btn {
+  font-size: 1rem;
+  background-color: #80c9e7;
+}
+
+.card-title{
+    margin-top:1rem;
+    font-size: 1.5rem;
+}

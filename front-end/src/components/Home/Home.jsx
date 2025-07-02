@@ -7,6 +7,7 @@ import "./Home.css";
 function Home({ boards, isFetching, error, onDelete }) {
   return (
     <div className="Home">
+      {/* <SubNavbar/> */}
       {isFetching ? (
         <div className="loading-message">Loading boards...</div>
       ) : error ? (
