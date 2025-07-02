@@ -29,23 +29,10 @@ function Card({ card, onDelete, onUpvote }) {
       </div>
 
       <div className="card-actions">
-<<<<<<< HEAD
-        <button
-          onClick={() => onUpvote(card.card_id)}
-          className="upvote-btn"
-        >
-          Upvote: {card.upvotes || 0}
-        </button>
-        <button
-          onClick={() => onDelete(card.card_id)}
-          className="delete-btn"
-        >
-=======
         <button onClick={() => onUpvote(card.card_id)} className="upvote-btn">
           Upvote: {card.upvotes || 0}
         </button>
         <button onClick={() => onDelete(card.card_id)} className="delete-btn">
->>>>>>> main
           Delete
         </button>
       </div>
