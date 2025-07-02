@@ -43,18 +43,18 @@
 .board-category.Celebration {
   background-color: #cff5e7;
   width: 9.5rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 .board-category.Thank.You {
   background-color: #d8c8ff;
   width: 8rem;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   border-color: #a79bc6;
 }
 .board-category.Inspiration {
   background-color: #ffddc1;
   width: 9.5rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 .board-author {
   font-size: 1.3rem;
@@ -79,7 +79,7 @@
 
 .delete-btn:hover {
   background-color: #d4b2af;
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 img {
@@ -95,11 +95,21 @@ img {
   width: 48rem;
   height: 30rem;
 }
+
+.confirm-modal-content {
+  background-color: white;
+  width: 30rem;
+  border-radius: 0.3rem;
+}
 .close-button-delete-modal {
   background-color: #da6c6c;
   font-size: 1.5rem;
   padding-top: 0;
   padding-bottom: 0;
+  position: absolute;
+  right: 39.5rem;
+  top: 26.3rem;
+  font-size: 1.2rem;
 }
 
 .confirm-modal-title {

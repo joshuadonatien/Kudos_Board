@@ -115,35 +115,35 @@ function BoardDetail() {
       </button>
 
       {/* Board Header */}
-      <div className="board-header">
-        <h1 className="board-title">{board.title}</h1>
-        <p className="board-category">{board.category}</p>
-        <p className="board-author">By: {board.author}</p>
+      <div className="board-header top">
+        <h3 className="board-title-board">{board.title}</h3>
+        <p className={`board-category ${board.category}`}>{board.category}</p>
+        <p className="board-author-board">By: {board.author}</p>
       </div>
 
       {/* Create a Card Button */}
-      <div className="create-card-section">
         <button onClick={toggleCreateCardModal} className="create-card-button">
           Create a Card
         </button>
-      </div>
+      <div className="create-card-section">
 
       {/* Cards List */}
       <div className="cards-list">
         {cards.length > 0 ? (
           cards.map((card) => (
             <Card
-              key={card.id}
-              card={card}
-              onDelete={handleDeleteCard}
-              onUpvote={handleUpvoteCard}
+            key={card.id}
+            card={card}
+            onDelete={handleDeleteCard}
+            onUpvote={handleUpvoteCard}
             />
           ))
         ) : (
-          <p className="no-cards-message">
+          <p className="message-group no-cards-message">
             No cards yet. Click "Create a Card" to add one!
           </p>
         )}
+        </div>
       </div>
 
       {/* Create Card Modal */}

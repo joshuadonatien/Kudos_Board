@@ -8,6 +8,7 @@ function Home({ boards, isFetching, error, onDelete }) {
   console.log(boards.data);
   return (
     <div className="Home">
+      {/* <SubNavbar/> */}
       {isFetching ? (
         <div className="loading-message">Loading boards...</div>
       ) : error ? (

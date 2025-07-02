@@ -101,32 +101,33 @@ function App() {
     }
   };
 
+  const HomePage = () => (
+    <>
+      <SubNavbar
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+        searchInputValue={searchInputValue}
+        handleOnSearchInputChange={handleOnSearchInputChange}
+        onSearchSubmit={handleSearchSubmit}
+        onClearSearch={handleClearSearch}
+        onCreateBoard={handleCreateBoard}
+      />
+      <Home
+        boards={filteredBoards}
+        isFetching={isFetchingBoards}
+        error={boardsError}
+        onDelete={handleDeleteBoard}
+      />
+    </>
+  );
+
   return (
     <div className="App">
       <BrowserRouter>
         <main>
-          <SubNavbar
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
-            searchInputValue={searchInputValue}
-            handleOnSearchInputChange={handleOnSearchInputChange}
-            onSearchSubmit={handleSearchSubmit}
-            onClearSearch={handleClearSearch}
-            onCreateBoard={handleCreateBoard}
-          />
 
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  boards={filteredBoards}
-                  isFetching={isFetchingBoards}
-                  error={boardsError}
-                  onDelete={handleDeleteBoard}
-                />
-              }
-            />
+            <Route path="/" element={<HomePage />} />
 
             <Route path="/boards/:boardId" element={<BoardDetail />} />
           </Routes>

@@ -164,7 +164,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
         </form>
 
         {/* Close button for the modal */}
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button create-modal" onClick={onClose}>
           &times;
         </button>
       </div>
