@@ -48,6 +48,9 @@ button {
   border-color: #d0d0d0;
   font-size: 1rem;
 }
+.material-icons:hover {
+  background-color: #e3e3e3;
+}
 
 .create-board {
   display: flex;
@@ -58,9 +61,8 @@ button {
 /* SubNav Bar Category and Create Buttons */
 
 .create-button {
-  background-color: #da6c6c;
+  background-color: #ef7676;
   border-color: #010101;
-  margin-bottom: 1rem;
   margin-top: 1rem;
   font-size: 1rem;
 }
@@ -90,6 +92,7 @@ button {
 /* SubNavBar Buttons Hover */
 .create-button:hover {
   background-color: #bc5d5d;
+  transform: scale(1.1);
 }
 .all button:hover {
   background-color: #cfb5d1;
@@ -113,7 +116,8 @@ button {
 /* DropDown Menu Modal*/
 
 .modal-title {
-  margin-bottom: 0;
+  margin-bottom: 0.4rem;
+  font-size: 3rem;
 }
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.4);
@@ -126,11 +130,12 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(233, 233, 233);
-  position:relative;
-  margin-left:25rem;
-  margin-right:25rem;
-  height:35rem;
+  background-color: rgb(242, 242, 242);
+  position: relative;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  height: 35rem;
+  border-radius: 0.5rem;
 }
 .category-select {
   border-color: #c8c8c8;
@@ -189,15 +194,15 @@ button {
   border-color: #c8c8c8;
   border-width: 0.15rem;
   border-radius: 0.3rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 #newBoardCategory {
   margin-left: 0.4rem;
-  width: 10rem;
+  width: 31rem;
   font-family: "DM Sans", sans-serif;
   border-radius: 0.3rem;
-  height: 2.8rem;
+  height: 3.1rem;
 }
 
 #newBoardAuthor {
@@ -265,9 +270,8 @@ label {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(41, 41, 41, 0.4); 
+  background-color: rgba(41, 41, 41, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
