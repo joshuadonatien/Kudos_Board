@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react"; // Import useState for modal state
-// Removed: import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
+import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
 
 function BoardCard({ board, onDelete }) {
   // const [showViewModal, setShowViewModal] = useState(false);
@@ -89,13 +89,17 @@ function BoardCard({ board, onDelete }) {
       {/* Delete Confirmation Modal */}
       {showDeleteConfirmModal && (
         <div className="modal-overlay">
+          <button className="close-button-delete-modal" onClick={toggleDeleteConfirmModal}>
+            &times;
+          </button>
           <div
             className="confirm-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="confirm-modal-title">Confirm Deletion</h3>
             <p className="confirm-modal-message">
-              Are you sure you want to delete the board "{board.title}"?
+              Are you sure you want to delete the board{" "}
+              <span className="board-title-text">"{board.title}"</span>?
             </p>
             <div className="confirm-buttons">
               <button
@@ -111,9 +115,7 @@ function BoardCard({ board, onDelete }) {
                 Delete
               </button>
             </div>
-            <button className="close-button" onClick={toggleDeleteConfirmModal}>
-              &times;
-            </button>
+
           </div>
         </div>
       )}

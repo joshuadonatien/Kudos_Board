@@ -127,6 +127,7 @@ function App() {
                 />
               }
             />
+
             <Route path="/boards/:boardId" element={<BoardDetail />} />
           </Routes>
         </main>
