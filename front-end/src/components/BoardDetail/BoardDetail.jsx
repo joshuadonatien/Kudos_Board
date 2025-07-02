@@ -26,16 +26,14 @@ function BoardDetail() {
         const cardsRes = await axios.get(
           `http://localhost:3000/boards/${boardId}/cards`
         );
-        console.log("CARDS: ", cardsRes.data);
         setCards(cardsRes.data);
 
         setError(null);
       } catch (err) {
         console.error("Error fetching board or cards:", err);
         setError("Failed to load board details. Please try again.");
-      } finally {
-        setIsFetching(false);
       }
+      setIsFetching(false);
     };
 
     fetchBoardAndCards();
@@ -62,7 +60,7 @@ function BoardDetail() {
   const handleDeleteCard = async (cardIdToDelete) => {
     try {
       await axios.delete(`http://localhost:3000/cards/${cardIdToDelete}`);
-      setCards(cards.filter((card) => card.card_id !== cardIdToDelete));
+      setCards(cards.filter((card) => card.id !== cardIdToDelete));
     } catch (err) {
       console.error("Error deleting card:", err);
       alert("Failed to delete card. Please try again.");
@@ -76,7 +74,7 @@ function BoardDetail() {
       );
       setCards(
         cards.map((card) =>
-          card.card_id === cardIdToUpvote
+          card.id === cardIdToUpvote
             ? { ...card, upvotes: response.data.upvotes }
             : card
         )
