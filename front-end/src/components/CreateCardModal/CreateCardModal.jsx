@@ -14,6 +14,8 @@ function CreateCardModal({ onClose, onCreateCard }) {
   const [gifSearchResults, setGifSearchResults] = useState([]); // To store GIF search results
   const [isSearchingGifs, setIsSearchingGifs] = useState(false);
 
+  const VITE_GIPHY_KEY = import.meta.env.VITE_GIPHY_KEY;
+
   const handleGifSearch = async () => {
     if (!gifSearchQuery.trim()) return;
     setIsSearchingGifs(true);
@@ -21,7 +23,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
     try {
       // Example using Giphy API: Replace YOUR_GIPHY_API_KEY with your actual key
       const gifRes = await fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=4uLAdYeVeLatGTzkqx7d6i9VCWt3w7Si&q=${encodeURIComponent(
+        `https://api.giphy.com/v1/gifs/search?api_key=${VITE_GIPHY_KEY}&q=${encodeURIComponent(
           gifSearchQuery
         )}&limit=5`
       );
