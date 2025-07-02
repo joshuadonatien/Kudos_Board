@@ -8,21 +8,21 @@ datasource db {
 }
 
 model Board {
-    board_id        Int     @id @default(autoincrement())
-    title           String
-    image_url       String
-    category        String
-    author          String?
-    cardList        Card[]
+  title     String
+  image_url String
+  category  String
+  author    String?
+  board_id  Int     @id @default(autoincrement())
+  cardList  Card[]
 }
 
 model Card {
-    card_id         Int     @id @default(autoincrement())
-    title           String
-    description     String
-    gif_url         String
-    upvotes         Int
-    owner           String?
-    board_id        Int
-    board           Board? @relation(fields: [board_id], references: [board_id])
+  card_id     Int     @id @default(autoincrement())
+  title       String
+  description String
+  gif_url     String
+  upvotes     Int
+  owner       String?
+  board_id    Int
+  board       Board   @relation(fields: [board_id], references: [board_id])
 }
