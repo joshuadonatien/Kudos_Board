@@ -21,7 +21,6 @@ router.delete("/:board_id", controller.deleteBoard)
 router.get("/:board_id/cards", controller.getCardsByBoard)
 
 //create card based on board id
-// /boards/${boardId}/cards
 router.post("/:board_id/cards", controller.createCardForBoard)
 
 module.exports = router

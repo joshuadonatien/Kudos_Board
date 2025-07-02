@@ -62,7 +62,7 @@ function BoardDetail() {
   const handleDeleteCard = async (cardIdToDelete) => {
     try {
       await axios.delete(`http://localhost:3000/cards/${cardIdToDelete}`);
-      setCards(cards.filter((card) => card.id !== cardIdToDelete));
+      setCards(cards.filter((card) => card.card_id !== cardIdToDelete));
     } catch (err) {
       console.error("Error deleting card:", err);
       alert("Failed to delete card. Please try again.");
@@ -76,7 +76,7 @@ function BoardDetail() {
       );
       setCards(
         cards.map((card) =>
-          card.id === cardIdToUpvote
+          card.card_id === cardIdToUpvote
             ? { ...card, upvotes: response.data.upvotes }
             : card
         )
