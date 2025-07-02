@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Card from '../Card/Card.jsx';
-import CreateCardModal from '../CreateCardModal/CreateCardModal.jsx'; 
-import './BoardDetail.css'; // You might want to create a BoardDetail.css if needed
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Card from "../Card/Card.jsx";
+import CreateCardModal from "../CreateCardModal/CreateCardModal.jsx";
+import "./BoardDetail.css"; // You might want to create a BoardDetail.css if needed
 
 function BoardDetail() {
   const { boardId } = useParams();
@@ -16,21 +16,25 @@ function BoardDetail() {
 
   useEffect(() => {
     const fetchBoardAndCards = async () => {
+      setIsFetching(true);
       try {
-        setIsFetching(true);
-        const boardRes = await axios.get(`http://localhost:3000/boards/${boardId}`);
+        const boardRes = await axios.get(
+          `http://localhost:3000/boards/${boardId}`
+        );
+        console.log("RESULTS: ", boardRes.data);
         setBoard(boardRes.data);
 
-        const cardsRes = await axios.get(`http://localhost:3000/boards/${boardId}/cards`);
-        setCards(cardsRes.data);
+        // const cardsRes = await axios.get(
+        //   `http://localhost:3000/boards/${boardId}`
+        // );
+        // setCards(cardsRes.data);
 
         setError(null);
       } catch (err) {
         console.error("Error fetching board or cards:", err);
         setError("Failed to load board details. Please try again.");
-      } finally {
-        setIsFetching(false);
       }
+      setIsFetching(false);
     };
 
     fetchBoardAndCards();
@@ -42,7 +46,10 @@ function BoardDetail() {
 
   const handleCreateCard = async (newCardData) => {
     try {
-      const response = await axios.post(`http://localhost:3000/boards/${boardId}/cards`, newCardData);
+      const response = await axios.post(
+        `http://localhost:3000/cards`,
+        newCardData
+      );
       setCards([...cards, response.data]);
       toggleCreateCardModal();
     } catch (err) {
@@ -54,7 +61,7 @@ function BoardDetail() {
   const handleDeleteCard = async (cardIdToDelete) => {
     try {
       await axios.delete(`http://localhost:3000/cards/${cardIdToDelete}`);
-      setCards(cards.filter(card => card.id !== cardIdToDelete));
+      setCards(cards.filter((card) => card.id !== cardIdToDelete));
     } catch (err) {
       console.error("Error deleting card:", err);
       alert("Failed to delete card. Please try again.");
@@ -63,10 +70,16 @@ function BoardDetail() {
 
   const handleUpvoteCard = async (cardIdToUpvote) => {
     try {
-      const response = await axios.patch(`http://localhost:3000/cards/${cardIdToUpvote}/upvote`);
-      setCards(cards.map(card =>
-        card.id === cardIdToUpvote ? { ...card, upvotes: response.data.upvotes } : card
-      ));
+      const response = await axios.patch(
+        `http://localhost:3000/cards/${cardIdToUpvote}/upvote`
+      );
+      setCards(
+        cards.map((card) =>
+          card.id === cardIdToUpvote
+            ? { ...card, upvotes: response.data.upvotes }
+            : card
+        )
+      );
     } catch (err) {
       console.error("Error upvoting card:", err);
       alert("Failed to upvote card. Please try again.");
@@ -88,10 +101,7 @@ function BoardDetail() {
   return (
     <div className="BoardDetail">
       {/* Back button */}
-      <button
-        onClick={() => navigate(-1)}
-        className="back-button"
-      >
+      <button onClick={() => navigate(-1)} className="back-button">
         &larr; Back to Boards
       </button>
 
@@ -104,10 +114,7 @@ function BoardDetail() {
 
       {/* Create a Card Button */}
       <div className="create-card-section">
-        <button
-          onClick={toggleCreateCardModal}
-          className="create-card-button"
-        >
+        <button onClick={toggleCreateCardModal} className="create-card-button">
           Create a Card
         </button>
       </div>
@@ -115,7 +122,7 @@ function BoardDetail() {
       {/* Cards List */}
       <div className="cards-list">
         {cards.length > 0 ? (
-          cards.map(card => (
+          cards.map((card) => (
             <Card
               key={card.id}
               card={card}
@@ -124,7 +131,9 @@ function BoardDetail() {
             />
           ))
         ) : (
-          <p className="no-cards-message">No cards yet. Click "Create a Card" to add one!</p>
+          <p className="no-cards-message">
+            No cards yet. Click "Create a Card" to add one!
+          </p>
         )}
       </div>
 
