@@ -135,7 +135,7 @@ function SubNavbar({
               onSubmit={handleCreateBoardSubmit}
               className="create-board-form"
             >
-              <label htmlFor="newBoardTitle">Title:</label>
+              <label htmlFor="newBoardTitle">Title<span className="stars">*</span></label>
               <div className="form-group">
                 <input
                   type="text"
@@ -148,7 +148,7 @@ function SubNavbar({
               </div>
 
               <div className="form-group">
-                <label htmlFor="newBoardCategory">Category:</label>
+                <label htmlFor="newBoardCategory">Category<span className="stars">*</span></label>
                 <select
                   id="newBoardCategory"
                   className={`category-select ${
@@ -174,11 +174,12 @@ function SubNavbar({
                 </select>
               </div>
 
-              <label htmlFor="newBoardAuthor">Author:</label>
+              <label htmlFor="newBoardAuthor">Author (optional)</label>
               <div className="form-group">
                 <input
                   type="text"
                   id="newBoardAuthor"
+                  placeholder='Like "William Shakespeare"'
                   value={newBoardAuthor}
                   onChange={(e) => setNewBoardAuthor(e.target.value)}
                 />
