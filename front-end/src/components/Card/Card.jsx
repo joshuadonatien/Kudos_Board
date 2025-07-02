@@ -1,5 +1,5 @@
 import React from "react";
-import './Card.css'; // The error "Could not resolve" indicates this file is not found or accessible.
+import "./Card.css"; // The error "Could not resolve" indicates this file is not found or accessible.
 // The component will now render without specific styling from Card.css.
 
 function Card({ card, onDelete, onUpvote }) {
