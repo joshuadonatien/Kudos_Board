@@ -1,10 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react"; // Import useState for modal state
+import React, { useState, useEffect } from "react"; // Import useState for modal state
 import "./BoardCard.css"; // Removed as requested, relying on semantic class names only.
+
+import { createApi } from "unsplash-js";
+
+const unsplash = createApi({
+  accessKey: "WVODrrz7dGPrRleIcJ1r97eEvrKugX5c1n1W1yKaJ_M",
+});
 
 function BoardCard({ board, onDelete }) {
   // const [showViewModal, setShowViewModal] = useState(false);
   const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
+  const [randomImage, setRandomImage] = useState(null);
   const navigate = useNavigate();
   //  const toggleViewModal = () => setShowViewModal(!showViewModal);
   const toggleDeleteConfirmModal = () =>
@@ -18,6 +25,22 @@ function BoardCard({ board, onDelete }) {
     toggleDeleteConfirmModal(); // Close the confirmation modal
   };
 
+  useEffect(() => {
+    unsplash.photos
+      .getRandom({ query: board.category || "nature" })
+      .then((result) => {
+        if (
+          result.response &&
+          result.response.urls &&
+          result.response.urls.small
+        ) {
+          setRandomImage(result.response.urls.small);
+        }
+      });
+  }, [board.image_url, board.category]);
+
+  unsplash.photos.getRandom({});
+
   return (
     <div className="BoardCard">
       <div className="board-info">
@@ -26,7 +49,7 @@ function BoardCard({ board, onDelete }) {
           <p className={`board-category ${board.category}`}>{board.category}</p>
           {board.image_url && (
             <img
-              src={board.image_url}
+              src={board.image_url || randomImage}
               alt={board.title}
               className="board-image"
               onError={(e) => {
