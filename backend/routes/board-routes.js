@@ -17,4 +17,10 @@ router.put("/:board_id", controller.updateBoard)
 // delete a board
 router.delete("/:board_id", controller.deleteBoard)
 
+//gets cards based on board id
+router.get("/:board_id/cards", controller.getCardsByBoard)
+
+//create card based on board id
+router.post("/:board_id/cards", controller.createCardForBoard)
+
 module.exports = router

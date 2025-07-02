@@ -52,7 +52,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
     onCreateCard({
       title,
       description,
-      gif_url: gifUrl, // Using image_url as per your schema assumption
+      gif_url: gifUrl,
       owner,
       upvotes: 0, // Initialize upvotes for new cards
     });

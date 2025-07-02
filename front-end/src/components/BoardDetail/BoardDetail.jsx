@@ -16,18 +16,17 @@ function BoardDetail() {
 
   useEffect(() => {
     const fetchBoardAndCards = async () => {
-      setIsFetching(true);
       try {
+        setIsFetching(true);
         const boardRes = await axios.get(
           `http://localhost:3000/boards/${boardId}`
         );
-        console.log("RESULTS: ", boardRes.data);
         setBoard(boardRes.data);
 
-        // const cardsRes = await axios.get(
-        //   `http://localhost:3000/boards/${boardId}`
-        // );
-        // setCards(cardsRes.data);
+        const cardsRes = await axios.get(
+          `http://localhost:3000/boards/${boardId}/cards`
+        );
+        setCards(cardsRes.data);
 
         setError(null);
       } catch (err) {
@@ -47,7 +46,7 @@ function BoardDetail() {
   const handleCreateCard = async (newCardData) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/cards`,
+        `http://localhost:3000/boards/${boardId}/cards`,
         newCardData
       );
       setCards([...cards, response.data]);
