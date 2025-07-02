@@ -9,9 +9,9 @@ function Card({ card, onDelete, onUpvote }) {
         <h3 className="card-title">{card.title}</h3>
         <p className="card-description">{card.description}</p>
 
-        {card.image_url && ( // Display GIF/image if available
+        {card.gif_url && ( // Display GIF/image if available
           <img
-            src={card.image_url}
+            src={card.gif_url}
             alt={card.title}
             className="card-image"
             onError={(e) => {
@@ -21,7 +21,7 @@ function Card({ card, onDelete, onUpvote }) {
             }}
           />
         )}
-        {!card.image_url && ( // Placeholder if no image
+        {!card.gif_url && ( // Placeholder if no image
           <div className="card-image-placeholder">No Image/GIF</div>
         )}
 
