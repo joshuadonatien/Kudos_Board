@@ -128,7 +128,7 @@ function App() {
               }
             />
 
-            <Route path="/:boardId" element={<BoardDetail />} />
+            <Route path="/boards/:boardId" element={<BoardDetail />} />
           </Routes>
         </main>
       </BrowserRouter>
