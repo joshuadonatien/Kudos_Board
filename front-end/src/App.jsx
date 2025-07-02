@@ -104,43 +104,16 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <main>
-        <SubNavbar
-          activeCategory={activeCategory}
-          setActiveCategory={setActiveCategory}
-          searchInputValue={searchInputValue}
-          handleOnSearchInputChange={handleOnSearchInputChange}
-          onSearchSubmit={handleSearchSubmit}
-          onClearSearch={handleClearSearch}
-          onCreateBoard={handleCreateBoard}
-        />
-        <div className="board-grid">
-        <BoardCard
-          board={{
-            title: "Title 1",
-            category: "Celebration",
-            image_url: "/assets/SampleImg.png",
-            author: "Camila",
-          }}
-        />
-
-        <BoardCard
-          board={{
-            title: "Title 2",
-            category: "Inspiration",
-            image_url: "/assets/SampleImg.png",
-            author: "Camila",
-          }}
-        />
-        <BoardCard
-          board={{
-            title: "Title 3",
-            category: "Thank You",
-            image_url: "/assets/SampleImg.png",
-            author: "Camila",
-          }}
-        />
-        </div>
+        <main>
+          <SubNavbar
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            searchInputValue={searchInputValue}
+            handleOnSearchInputChange={handleOnSearchInputChange}
+            onSearchSubmit={handleSearchSubmit}
+            onClearSearch={handleClearSearch}
+            onCreateBoard={handleCreateBoard}
+          />
 
           <Routes>
             <Route
@@ -154,7 +127,8 @@ function App() {
                 />
               }
             />
-            <Route path="/boards/:boardId" element={<BoardDetail />} />
+
+            <Route path="/:boardId" element={<BoardDetail />} />
           </Routes>
         </main>
       </BrowserRouter>
