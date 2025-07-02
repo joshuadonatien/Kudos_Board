@@ -28,13 +28,13 @@ function Card({ card, onDelete, onUpvote }) {
 
       <div className="card-actions">
         <button
-          onClick={() => onUpvote(card.id)}
+          onClick={() => onUpvote(card.card_id)}
           className="upvote-btn"
         >
           Upvote: {card.upvotes || 0}
         </button>
         <button
-          onClick={() => onDelete(card.id)}
+          onClick={() => onDelete(card.card_id)}
           className="delete-btn"
         >
           Delete

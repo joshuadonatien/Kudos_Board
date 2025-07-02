@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 // Assuming you might need an API key for GIF search, similar to TMDb
 // const GIF_API_KEY = import.meta.env.VITE_GIPHY_API_KEY; // Example for Giphy
 
-function CreateCardModal({ onClose, onCreateCard }) {
+function CreateCardModal({ onClose, onCreateCard, board_id }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [gifSearchQuery, setGifSearchQuery] = useState('');
@@ -46,9 +46,10 @@ function CreateCardModal({ onClose, onCreateCard }) {
     onCreateCard({
       title,
       description,
-      image_url: gifUrl, // Using image_url as per your schema assumption
+      gif_url: gifUrl, // Using image_url as per your schema assumption
       owner,
-      upvotes: 0 // Initialize upvotes for new cards
+      upvotes: 0, // Initialize upvotes for new cards
+      board_id
     });
   };
 
