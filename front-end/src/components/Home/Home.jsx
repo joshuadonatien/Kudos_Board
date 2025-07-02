@@ -5,7 +5,6 @@ import BoardGrid from "../BoardGrid/BoardGrid";
 import "./Home.css";
 
 function Home({ boards, isFetching, error, onDelete }) {
-  console.log(boards.data);
   return (
     <div className="Home">
       {isFetching ? (
