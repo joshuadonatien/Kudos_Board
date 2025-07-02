@@ -23,8 +23,11 @@ function BoardDetail() {
         );
         setBoard(boardRes.data);
 
-        // const cardsRes = await axios.get(`http://localhost:3000/boards/${boardId}/cards`);
-        // setCards(cardsRes.data);
+        const cardsRes = await axios.get(
+          `http://localhost:3000/boards/${boardId}/cards`
+        );
+        console.log("CARDS: ", cardsRes.data);
+        setCards(cardsRes.data);
 
         setError(null);
       } catch (err) {
