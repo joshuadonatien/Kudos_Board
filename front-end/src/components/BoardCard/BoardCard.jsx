@@ -23,7 +23,7 @@ function BoardCard({ board, onDelete }) {
       <div className="board-info">
         <div className="info">
           <p className="board-title">{board.title}</p>
-          <p className="board-category">{board.category}</p>
+          <p className={`board-category ${board.category}`}>{board.category}</p>
           {board.image_url && (
             <img
               src={board.image_url}
@@ -89,7 +89,10 @@ function BoardCard({ board, onDelete }) {
       {/* Delete Confirmation Modal */}
       {showDeleteConfirmModal && (
         <div className="modal-overlay">
-          <button className="close-button-delete-modal" onClick={toggleDeleteConfirmModal}>
+          <button
+            className="close-button-delete-modal"
+            onClick={toggleDeleteConfirmModal}
+          >
             &times;
           </button>
           <div
@@ -115,7 +118,6 @@ function BoardCard({ board, onDelete }) {
                 Delete
               </button>
             </div>
-
           </div>
         </div>
       )}

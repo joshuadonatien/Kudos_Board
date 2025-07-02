@@ -48,6 +48,9 @@ button {
   border-color: #d0d0d0;
   font-size: 1rem;
 }
+.material-icons:hover {
+  background-color: #e3e3e3;
+}
 
 .create-board {
   display: flex;
@@ -58,9 +61,8 @@ button {
 /* SubNav Bar Category and Create Buttons */
 
 .create-button {
-  background-color: #da6c6c;
+  background-color: #ef7676;
   border-color: #010101;
-  margin-bottom: 1rem;
   margin-top: 1rem;
   font-size: 1rem;
 }
@@ -90,6 +92,7 @@ button {
 /* SubNavBar Buttons Hover */
 .create-button:hover {
   background-color: #bc5d5d;
+  transform: scale(1.1);
 }
 .all button:hover {
   background-color: #cfb5d1;
@@ -114,7 +117,7 @@ button {
 
 .modal-title {
   margin-bottom: 0.4rem;
-  font-size:3rem;
+  font-size: 3rem;
 }
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.4);
@@ -128,10 +131,10 @@ button {
   justify-content: center;
   align-items: center;
   background-color: rgb(242, 242, 242);
-  position:relative;
-  margin-left:25rem;
-  margin-right:25rem;
-  height:35rem;
+  position: relative;
+  margin-left: 25rem;
+  margin-right: 25rem;
+  height: 35rem;
   border-radius: 0.5rem;
 }
 .category-select {
@@ -267,10 +270,8 @@ label {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(41, 41, 41, 0.4); 
+  background-color: rgba(41, 41, 41, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
-  
-
 }

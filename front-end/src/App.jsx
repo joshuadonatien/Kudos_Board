@@ -114,33 +114,6 @@ function App() {
             onClearSearch={handleClearSearch}
             onCreateBoard={handleCreateBoard}
           />
-          <div className="board-grid">
-            <BoardCard
-              board={{
-                title: "Title 1",
-                category: "Celebration",
-                image_url: "/assets/SampleImg.png",
-                author: "Camila",
-              }}
-            />
-
-            <BoardCard
-              board={{
-                title: "Title 2",
-                category: "Inspiration",
-                image_url: "/assets/SampleImg.png",
-                author: "Camila",
-              }}
-            />
-            <BoardCard
-              board={{
-                title: "Title 3",
-                category: "Thank You",
-                image_url: "/assets/SampleImg.png",
-                author: "Camila",
-              }}
-            />
-          </div>
 
           <Routes>
             <Route
@@ -154,6 +127,7 @@ function App() {
                 />
               }
             />
+
             <Route path="/boards/:boardId" element={<BoardDetail />} />
           </Routes>
         </main>

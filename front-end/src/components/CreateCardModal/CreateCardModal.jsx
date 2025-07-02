@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // Removed: import './CreateCardModal.css'; // The error "Could not resolve" indicates this file is not found or accessible.
 // The component will now render without specific styling from CreateCardModal.css.
 
@@ -6,11 +6,11 @@ import React, { useState } from 'react';
 // const GIF_API_KEY = import.meta.env.VITE_GIPHY_API_KEY; // Example for Giphy
 
 function CreateCardModal({ onClose, onCreateCard }) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [gifSearchQuery, setGifSearchQuery] = useState('');
-  const [gifUrl, setGifUrl] = useState(''); // Stores the selected GIF URL
-  const [owner, setOwner] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [gifSearchQuery, setGifSearchQuery] = useState("");
+  const [gifUrl, setGifUrl] = useState(""); // Stores the selected GIF URL
+  const [owner, setOwner] = useState("");
   const [gifSearchResults, setGifSearchResults] = useState([]); // To store GIF search results
   const [isSearchingGifs, setIsSearchingGifs] = useState(false);
 
@@ -20,9 +20,15 @@ function CreateCardModal({ onClose, onCreateCard }) {
     setGifSearchResults([]); // Clear previous results
     try {
       // Example using Giphy API: Replace YOUR_GIPHY_API_KEY with your actual key
-      const gifRes = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=YOUR_GIPHY_API_KEY&q=${encodeURIComponent(gifSearchQuery)}&limit=5`);
+      const gifRes = await fetch(
+        `https://api.giphy.com/v1/gifs/search?api_key=4uLAdYeVeLatGTzkqx7d6i9VCWt3w7Si&q=${encodeURIComponent(
+          gifSearchQuery
+        )}&limit=5`
+      );
       const gifData = await gifRes.json();
-      setGifSearchResults(gifData.data.map(gif => gif.images.fixed_height.url)); // Use fixed_height for consistent size
+      setGifSearchResults(
+        gifData.data.map((gif) => gif.images.fixed_height.url)
+      ); // Use fixed_height for consistent size
     } catch (error) {
       console.error("Error searching GIFs:", error);
       alert("Failed to search GIFs. Please try again.");
@@ -39,22 +45,25 @@ function CreateCardModal({ onClose, onCreateCard }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) {
-      alert('Card title is required!');
+      alert("Card title is required!");
       return;
     }
 
     onCreateCard({
       title,
       description,
-      image_url: gifUrl, // Using image_url as per your schema assumption
+      gif_url: gifUrl,
       owner,
-      upvotes: 0 // Initialize upvotes for new cards
+      upvotes: 0, // Initialize upvotes for new cards
     });
   };
 
   return (
     <div className="modal-overlay">
-      <div className="create-card-modal-content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="create-card-modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
         <h2 className="modal-title">Create a New Card</h2>
 
         <form onSubmit={handleSubmit} className="create-card-form">
@@ -97,7 +106,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
                 className="gif-search-btn"
                 disabled={isSearchingGifs}
               >
-                {isSearchingGifs ? 'Searching...' : 'Search'}
+                {isSearchingGifs ? "Searching..." : "Search"}
               </button>
             </div>
             {/* Display GIF search results */}
@@ -149,19 +158,13 @@ function CreateCardModal({ onClose, onCreateCard }) {
             />
           </div>
 
-          <button
-            type="submit"
-            className="create-card-submit-btn"
-          >
+          <button type="submit" className="create-card-submit-btn">
             Create Card
           </button>
         </form>
 
         {/* Close button for the modal */}
-        <button
-          className="close-button"
-          onClick={onClose}
-        >
+        <button className="close-button" onClick={onClose}>
           &times;
         </button>
       </div>

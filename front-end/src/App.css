@@ -1,1 +1,11 @@
-
+h1 {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  text-shadow: 2.5px 2px rgb(205, 69, 69);
+  background-color: #80c9e7;
+  color: #d9f4fe;
+  margin-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  font-size: 4rem;
+}
