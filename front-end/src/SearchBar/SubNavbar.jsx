@@ -44,10 +44,9 @@ function SubNavbar({
 
     if (
       !newBoardTitle.trim() ||
-      !newBoardCategory.trim() ||
-      !newBoardAuthor.trim()
+      !newBoardCategory.trim() 
     ) {
-      alert("Please fill in all required fields (Title, Category, Author)."); // Consider a custom modal for alerts
+      alert("Please fill in all required fields (Title, Category)."); // Consider a custom modal for alerts
       return;
     }
     // image_url is optional as per requirements, so no need to check trim() for it
@@ -182,7 +181,6 @@ function SubNavbar({
                   id="newBoardAuthor"
                   value={newBoardAuthor}
                   onChange={(e) => setNewBoardAuthor(e.target.value)}
-                  required
                 />
               </div>
 

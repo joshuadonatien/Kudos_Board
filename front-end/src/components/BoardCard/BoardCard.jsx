@@ -39,7 +39,7 @@ function BoardCard({ board, onDelete }) {
           {!board.image_url && (
             <div className="board-image-placeholder">No Image</div>
           )}
-          <p className="board-author">By: {board.author}</p>
+          <p className="board-author">By: {board.author || "Anonymous"}</p>
         </div>
       </div>
       <div className="actions">
