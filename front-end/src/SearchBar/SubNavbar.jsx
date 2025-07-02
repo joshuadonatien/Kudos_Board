@@ -44,11 +44,9 @@ function SubNavbar({
 
     if (
       !newBoardTitle.trim() ||
-      !newBoardCategory.trim() ||
-      !newBoardAuthor.trim() ||
-      !newBoardImage_url.trim()
+      !newBoardCategory.trim() 
     ) {
-      alert("Please fill in all required fields (Title, Category, Author)."); // Consider a custom modal for alerts
+      alert("Please fill in all required fields (Title, Category)."); // Consider a custom modal for alerts
       return;
     }
     // image_url is optional as per requirements, so no need to check trim() for it
@@ -183,19 +181,6 @@ function SubNavbar({
                   id="newBoardAuthor"
                   value={newBoardAuthor}
                   onChange={(e) => setNewBoardAuthor(e.target.value)}
-                  required
-                />
-              </div>
-
-              {/* NEW: Input for Image URL */}
-              <label htmlFor="newBoardImage_url">Image URL (optional):</label>
-              <div className="form-group">
-                <input
-                  type="text"
-                  id="newBoardImage_url"
-                  value={newBoardImage_url}
-                  onChange={(e) => setNewBoardImage_url(e.target.value)}
-                  placeholder="e.g., https://example.com/board.jpg"
                 />
               </div>
 

@@ -26,20 +26,20 @@ function BoardCard({ board, onDelete }) {
           <p className={`board-category ${board.category}`}>{board.category}</p>
           {board.image_url && (
             <img
-              src={board.image_url}
+              src={`https://picsum.photos/200/300?random=${board.board_id}`}
               alt={board.title}
               className="board-image"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src =
-                  "https://placehold.co/300x200/4B5563/D1D5DB?text=No+Image";
+                  "https://placehold.co/300x200/4B5563/D1D5DB?text=No+Image+heRE";
               }}
             />
           )}
           {!board.image_url && (
             <div className="board-image-placeholder">No Image</div>
           )}
-          <p className="board-author">By: {board.author}</p>
+          <p className="board-author">By: {board.author || "Anonymous"}</p>
         </div>
       </div>
       <div className="actions">
