@@ -68,22 +68,32 @@ function BoardDetail() {
   };
 
   const handleUpvoteCard = async (cardIdToUpvote) => {
-    try {
-      const response = await axios.patch(
-        `http://localhost:3000/cards/${cardIdToUpvote}/upvote`
-      );
-      setCards(
-        cards.map((card) =>
-          card.id === cardIdToUpvote
-            ? { ...card, upvotes: response.data.upvotes }
-            : card
-        )
-      );
-    } catch (err) {
-      console.error("Error upvoting card:", err);
-      alert("Failed to upvote card. Please try again.");
-    }
-  };
+  try {
+    // Find the card to get current upvotes
+    const cardToUpdate = cards.find((card) => card.card_id === cardIdToUpvote);
+    if (!cardToUpdate) return;
+
+    const updatedCardData = {
+      ...cardToUpdate,
+      upvotes: cardToUpdate.upvotes + 1,
+    };
+
+    const response = await axios.put(
+      `http://localhost:3000/cards/${cardIdToUpvote}`,
+      updatedCardData
+    );
+
+    setCards(
+      cards.map((card) =>
+        card.card_id === cardIdToUpvote ? response.data : card
+      )
+    );
+  } catch (err) {
+    console.error("Error upvoting card:", err);
+    alert("Failed to upvote card. Please try again.");
+  }
+};
+
 
   if (isFetching) {
     return <div className="board-detail-loading">Loading board...</div>;
