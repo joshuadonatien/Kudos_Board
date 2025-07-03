@@ -66,11 +66,15 @@ function CreateCardModal({ onClose, onCreateCard }) {
         className="create-card-modal-content"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close button for the modal */}
+        <button className="create-card-modal-content close-button create-modal" onClick={onClose}>
+          &times;
+        </button>
         <h2 className="modal-title">Create a New Card</h2>
 
         <form onSubmit={handleSubmit} className="create-card-form">
           <div className="form-group">
-            <label htmlFor="cardTitle">Enter card title</label>
+            {/* <label htmlFor="cardTitle">Enter card title</label> */}
             <input
               type="text"
               id="cardTitle"
@@ -82,7 +86,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="cardDescription">Enter card description</label>
+            {/* <label htmlFor="cardDescription">Enter card description</label> */}
             <input
               type="text"
               id="cardDescription"
@@ -93,7 +97,7 @@ function CreateCardModal({ onClose, onCreateCard }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="searchGifs">Search GIFs...</label>
+            {/* <label htmlFor="searchGifs">Search GIFs...</label> */}
             <div className="gif-search-input-group">
               <input
                 type="text"
@@ -102,14 +106,6 @@ function CreateCardModal({ onClose, onCreateCard }) {
                 onChange={(e) => setGifSearchQuery(e.target.value)}
                 placeholder="Search GIFs..."
               />
-              <button
-                type="button"
-                onClick={handleGifSearch}
-                className="gif-search-btn"
-                disabled={isSearchingGifs}
-              >
-                {isSearchingGifs ? "Searching..." : "Search"}
-              </button>
             </div>
             {/* Display GIF search results */}
             {gifSearchResults.length > 0 && (
@@ -126,31 +122,39 @@ function CreateCardModal({ onClose, onCreateCard }) {
               </div>
             )}
           </div>
+          <button
+            type="button"
+            onClick={handleGifSearch}
+            className="gif-search-btn"
+            disabled={isSearchingGifs}
+          >
+            {isSearchingGifs ? "Searching..." : "Search"}
+          </button>
 
           <div className="form-group">
-            <label htmlFor="gifUrl">Enter GIF URL</label>
+            {/* <label htmlFor="gifUrl">Enter GIF URL</label> */}
             <div className="gif-url-input-group">
               <input
                 type="text"
                 id="gifUrl"
                 value={gifUrl}
                 onChange={(e) => setGifUrl(e.target.value)}
-                placeholder="GIF URL (or select from search results)"
+                placeholder="Enter GIF URL (or select from search results)"
                 readOnly // Make it read-only as it's primarily for copy-pasting or selection
               />
-              <button
-                type="button"
-                onClick={() => navigator.clipboard.writeText(gifUrl)} // Copy to clipboard
-                className="copy-gif-url-btn"
-                disabled={!gifUrl}
-              >
-                Copy GIF URL
-              </button>
             </div>
           </div>
+          <button
+            type="button"
+            onClick={() => navigator.clipboard.writeText(gifUrl)} // Copy to clipboard
+            className="copy-gif-url-btn"
+            disabled={!gifUrl}
+          >
+            Copy GIF URL
+          </button>
 
           <div className="form-group">
-            <label htmlFor="cardOwner">Enter owner (optional)</label>
+            {/* <label htmlFor="cardOwner">Enter owner (optional)</label> */}
             <input
               type="text"
               id="cardOwner"
@@ -165,10 +169,6 @@ function CreateCardModal({ onClose, onCreateCard }) {
           </button>
         </form>
 
-        {/* Close button for the modal */}
-        <button className="close-button create-modal" onClick={onClose}>
-          &times;
-        </button>
       </div>
     </div>
   );
