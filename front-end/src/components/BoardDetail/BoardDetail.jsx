@@ -68,32 +68,33 @@ function BoardDetail() {
   };
 
   const handleUpvoteCard = async (cardIdToUpvote) => {
-  try {
-    // Find the card to get current upvotes
-    const cardToUpdate = cards.find((card) => card.card_id === cardIdToUpvote);
-    if (!cardToUpdate) return;
+    try {
+      // Find the card to get current upvotes
+      const cardToUpdate = cards.find(
+        (card) => card.card_id === cardIdToUpvote
+      );
+      if (!cardToUpdate) return;
 
-    const updatedCardData = {
-      ...cardToUpdate,
-      upvotes: cardToUpdate.upvotes + 1,
-    };
+      const updatedCardData = {
+        ...cardToUpdate,
+        upvotes: cardToUpdate.upvotes + 1,
+      };
 
-    const response = await axios.put(
-      `http://localhost:3000/cards/${cardIdToUpvote}`,
-      updatedCardData
-    );
+      const response = await axios.put(
+        `http://localhost:3000/cards/${cardIdToUpvote}`,
+        updatedCardData
+      );
 
-    setCards(
-      cards.map((card) =>
-        card.card_id === cardIdToUpvote ? response.data : card
-      )
-    );
-  } catch (err) {
-    console.error("Error upvoting card:", err);
-    alert("Failed to upvote card. Please try again.");
-  }
-};
-
+      setCards(
+        cards.map((card) =>
+          card.card_id === cardIdToUpvote ? response.data : card
+        )
+      );
+    } catch (err) {
+      console.error("Error upvoting card:", err);
+      alert("Failed to upvote card. Please try again.");
+    }
+  };
 
   if (isFetching) {
     return <div className="board-detail-loading">Loading board...</div>;
@@ -117,32 +118,33 @@ function BoardDetail() {
       {/* Board Header */}
       <div className="board-header top">
         <h3 className="board-title-board">{board.title}</h3>
-        <p className={`board-category-board ${board.category}`}>{board.category}</p>
-        <p className="board-author-board">By: {board.author}</p>
+        <p className={`board-category-board ${board.category}`}>
+          {board.category}
+        </p>
+        <p className="board-author-board">By: {board.author || "Anonymous"}</p>
       </div>
 
       {/* Create a Card Button */}
-        <button onClick={toggleCreateCardModal} className="create-card-button">
-          Create a Card
-        </button>
+      <button onClick={toggleCreateCardModal} className="create-card-button">
+        Create a Card
+      </button>
       <div className="create-card-section">
-
-      {/* Cards List */}
-      <div className="cards-list">
-        {cards.length > 0 ? (
-          cards.map((card) => (
-            <Card
-            key={card.id}
-            card={card}
-            onDelete={handleDeleteCard}
-            onUpvote={handleUpvoteCard}
-            />
-          ))
-        ) : (
-          <p id="no-cards-message">
-            No cards yet. Click "Create a Card" to add one!
-          </p>
-        )}
+        {/* Cards List */}
+        <div className="cards-list">
+          {cards.length > 0 ? (
+            cards.map((card) => (
+              <Card
+                key={card.id}
+                card={card}
+                onDelete={handleDeleteCard}
+                onUpvote={handleUpvoteCard}
+              />
+            ))
+          ) : (
+            <p id="no-cards-message">
+              No cards yet. Click "Create a Card" to add one!
+            </p>
+          )}
         </div>
       </div>
 
