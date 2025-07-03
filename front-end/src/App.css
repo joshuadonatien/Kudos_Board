@@ -15,3 +15,11 @@ h1 {
   padding-top: 1.5rem;
   font-size: 4rem;
 }
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}

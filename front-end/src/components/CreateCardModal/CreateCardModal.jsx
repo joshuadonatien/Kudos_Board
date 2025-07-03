@@ -66,6 +66,10 @@ function CreateCardModal({ onClose, onCreateCard }) {
         className="create-card-modal-content"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close button for the modal */}
+        <button className="create-card-modal-content close-button create-modal" onClick={onClose}>
+          &times;
+        </button>
         <h2 className="modal-title">Create a New Card</h2>
 
         <form onSubmit={handleSubmit} className="create-card-form">
@@ -165,10 +169,6 @@ function CreateCardModal({ onClose, onCreateCard }) {
           </button>
         </form>
 
-        {/* Close button for the modal */}
-        <button className="close-button create-modal" onClick={onClose}>
-          &times;
-        </button>
       </div>
     </div>
   );

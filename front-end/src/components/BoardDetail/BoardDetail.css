@@ -80,7 +80,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+padding:2rem;
+padding-top:3rem;
+  position: relative;
 }
 
 .create-card-form {
@@ -138,8 +140,14 @@
   font-size: 1rem;
 }
 
-.close-button.create-modal {
+.create-card-modal-content.close-button.create-modal {
+  background-color: #ef7676;
+  right: 0;
+  padding: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 1rem;
   position: absolute;
-  right: 36.5rem;
-  top: 13.5rem;
+  right:0.5rem;
+  top:0.5rem;
 }

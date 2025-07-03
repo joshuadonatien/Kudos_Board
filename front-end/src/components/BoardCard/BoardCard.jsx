@@ -89,12 +89,12 @@ function BoardCard({ board, onDelete }) {
       {/* Delete Confirmation Modal */}
       {showDeleteConfirmModal && (
         <div className="modal-overlay">
-          <button
+          {/* <button
             className="close-button-delete-modal"
             onClick={toggleDeleteConfirmModal}
           >
             &times;
-          </button>
+          </button> */}
           <div
             className="confirm-modal-content"
             onClick={(e) => e.stopPropagation()}
