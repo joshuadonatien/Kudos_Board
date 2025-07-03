@@ -1,6 +1,6 @@
-*{
-    margin:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -22,7 +22,6 @@ h1 {
 main {
   flex: 1;
 }
-
 
 .dark-mode {
   background: #18181b !important;
@@ -46,11 +45,11 @@ main {
 }
 
 .dark-mode .BoardCard {
-  box-shadow: 5px 5px rgb(12, 12, 12);
+  box-shadow: 5px 5px rgb(69, 69, 69);
   border-color: rgb(234, 234, 234);
 }
 
-.dark-mode .BoardCard .board-category{
+.dark-mode .BoardCard .board-category {
   color: black;
 }
 .dark-mode .footer {
@@ -62,7 +61,6 @@ main {
   background: #23272f !important;
   color: #f3f4f6 !important;
 }
-
 
 .dark-mode select,
 .dark-mode textarea {
@@ -77,16 +75,16 @@ main {
 }
 
 /* board detail page css here */
-.dark-mode .BoardDetail .board-category-board{
+.dark-mode .BoardDetail .board-category-board {
   color: black;
   font-family: "DM Sans", sans-serif;
 }
 
-.BoardDetail .cards-list #no-cards-message{
+.BoardDetail .cards-list #no-cards-message {
   border-radius: 5px;
 }
 
-.dark-mode .BoardDetail .cards-list #no-cards-message{
+.dark-mode .BoardDetail .cards-list #no-cards-message {
   color: white;
   font-family: "DM Sans", sans-serif;
   background-color: black;
@@ -96,10 +94,17 @@ main {
   color: black;
 }
 
-.dark-mode .create-card-form .form-group input{
+.dark-mode .create-card-form .form-group input {
   background: #2d2d34 !important;
   color: white;
   border: 1px solid white;
   border-radius: 2px;
 }
 
+.dark-mode .create-button {
+  box-shadow: 3px 3px rgb(69, 69, 69);
+}
+
+.dark-mode  #newBoardCategory {
+  background-color: red;
+}
