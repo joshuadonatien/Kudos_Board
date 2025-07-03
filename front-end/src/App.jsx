@@ -7,6 +7,41 @@ import Home from "./components/Home/Home";
 import BoardDetail from "./components/BoardDetail/BoardDetail";
 import "./App.css";
 
+// HomePage moved outside App to avoid re-renders breaking input focus
+function HomePage({
+  activeCategory,
+  setActiveCategory,
+  searchInputValue,
+  handleOnSearchInputChange,
+  onSearchSubmit,
+  onClearSearch,
+  onCreateBoard,
+  filteredBoards,
+  isFetchingBoards,
+  boardsError,
+  handleDeleteBoard,
+}) {
+  return (
+    <>
+      <SubNavbar
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+        searchInputValue={searchInputValue}
+        handleOnSearchInputChange={handleOnSearchInputChange}
+        onSearchSubmit={onSearchSubmit}
+        onClearSearch={onClearSearch}
+        onCreateBoard={onCreateBoard}
+      />
+      <Home
+        boards={filteredBoards}
+        isFetching={isFetchingBoards}
+        error={boardsError}
+        onDelete={handleDeleteBoard}
+      />
+    </>
+  );
+}
+
 function App() {
   const [boards, setBoards] = useState([]);
   const [filteredBoards, setFilteredBoards] = useState([]);
@@ -53,15 +88,16 @@ function App() {
       );
     }
 
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
+    // Search matches either the live input or the submitted query
+    if (searchInputValue.trim()) {
+      const q = searchInputValue.toLowerCase();
       currentBoards = currentBoards.filter((board) =>
         board.title.toLowerCase().includes(q)
       );
     }
 
     setFilteredBoards(currentBoards);
-  }, [boards, activeCategory, searchQuery]);
+  }, [boards, activeCategory, searchInputValue, searchQuery]);
 
   // Handlers
   const handleOnSearchInputChange = (e) => {
@@ -69,7 +105,7 @@ function App() {
   };
 
   const handleSearchSubmit = () => {
-    setSearchQuery(searchInputValue);
+    setSearchQuery(searchInputValue); // triggers search by updating searchQuery
   };
 
   const handleClearSearch = () => {
@@ -101,34 +137,29 @@ function App() {
     }
   };
 
-  const HomePage = () => (
-    <>
-      <SubNavbar
-        activeCategory={activeCategory}
-        setActiveCategory={setActiveCategory}
-        searchInputValue={searchInputValue}
-        handleOnSearchInputChange={handleOnSearchInputChange}
-        onSearchSubmit={handleSearchSubmit}
-        onClearSearch={handleClearSearch}
-        onCreateBoard={handleCreateBoard}
-      />
-      <Home
-        boards={filteredBoards}
-        isFetching={isFetchingBoards}
-        error={boardsError}
-        onDelete={handleDeleteBoard}
-      />
-    </>
-  );
-
   return (
     <div className="App">
       <BrowserRouter>
         <main>
-
           <Routes>
-            <Route path="/" element={<HomePage />} />
-
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  activeCategory={activeCategory}
+                  setActiveCategory={setActiveCategory}
+                  searchInputValue={searchInputValue}
+                  handleOnSearchInputChange={handleOnSearchInputChange}
+                  onSearchSubmit={handleSearchSubmit}
+                  onClearSearch={handleClearSearch}
+                  onCreateBoard={handleCreateBoard}
+                  filteredBoards={filteredBoards}
+                  isFetchingBoards={isFetchingBoards}
+                  boardsError={boardsError}
+                  handleDeleteBoard={handleDeleteBoard}
+                />
+              }
+            />
             <Route path="/boards/:boardId" element={<BoardDetail />} />
           </Routes>
         </main>
