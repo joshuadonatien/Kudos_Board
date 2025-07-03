@@ -52,6 +52,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState("All ");
   const [searchInputValue, setSearchInputValue] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   // Fetch boards on mount
   useEffect(() => {
@@ -139,8 +140,27 @@ function App() {
   };
 
   return (
-    <div className="App">
+    // <div className="App">
+    <div className={`App${darkMode ? " dark-mode" : ""}`}>
       <BrowserRouter>
+        <button
+          className="dark-mode-toggle"
+          onClick={() => setDarkMode((prev) => !prev)}
+          style={{
+            position: "fixed",
+            top: 20,
+            right: 20,
+            zIndex: 200,
+            padding: "0.5rem 1rem",
+            borderRadius: "1rem",
+            border: "none",
+            background: darkMode ? "#333" : "#eee",
+            color: darkMode ? "#fff" : "#222",
+            cursor: "pointer",
+          }}
+        >
+          {darkMode ? "⏾" : "☼"}
+        </button>
         <main>
           <Routes>
             <Route

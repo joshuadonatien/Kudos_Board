@@ -3,19 +3,18 @@
     box-sizing: border-box;
 }
 
-
 h1 {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   text-shadow: 2.5px 2px rgb(205, 69, 69);
   background-color: #80c9e7;
   color: #d9f4fe;
-  margin-bottom: 1rem;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
   font-size: 4rem;
 }
 .App {
+  padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -23,3 +22,84 @@ h1 {
 main {
   flex: 1;
 }
+
+
+.dark-mode {
+  background: #18181b !important;
+  color: #f3f4f6 !important;
+}
+
+.dark-mode .row {
+  color: black;
+}
+
+.dark-mode .SubNavBar {
+  color: black;
+}
+
+.dark-mode .SubNavBar input {
+  /* border-color: rgb(234, 234, 234); */
+  background-color: #23272f;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: white;
+}
+
+.dark-mode .BoardCard {
+  box-shadow: 5px 5px rgb(12, 12, 12);
+  border-color: rgb(234, 234, 234);
+}
+
+.dark-mode .BoardCard .board-category{
+  color: black;
+}
+.dark-mode .footer {
+  color: black;
+}
+
+.dark-mode .create-board-modal-content,
+.dark-mode .create-card-modal-content {
+  background: #23272f !important;
+  color: #f3f4f6 !important;
+}
+
+
+.dark-mode select,
+.dark-mode textarea {
+  background: #2d2d34 !important;
+  color: #f3f4f6 !important;
+  border-color: #444 !important;
+}
+
+.dark-mode button {
+  color: #000000 !important;
+  border-color: #444 !important;
+}
+
+/* board detail page css here */
+.dark-mode .BoardDetail .board-category-board{
+  color: black;
+  font-family: "DM Sans", sans-serif;
+}
+
+.BoardDetail .cards-list #no-cards-message{
+  border-radius: 5px;
+}
+
+.dark-mode .BoardDetail .cards-list #no-cards-message{
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  background-color: black;
+}
+
+.dark-mode .BoardDetail .cards-list {
+  color: black;
+}
+
+.dark-mode .create-card-form .form-group input{
+  background: #2d2d34 !important;
+  color: white;
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
