@@ -117,7 +117,7 @@ function BoardDetail() {
       {/* Board Header */}
       <div className="board-header top">
         <h3 className="board-title-board">{board.title}</h3>
-        <p className={`board-category ${board.category}`}>{board.category}</p>
+        <p className={`board-category-board ${board.category}`}>{board.category}</p>
         <p className="board-author-board">By: {board.author}</p>
       </div>
 
