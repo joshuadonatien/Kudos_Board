@@ -5,6 +5,7 @@ import BoardCard from "./components/BoardCard/BoardCard";
 import SubNavbar from "./SearchBar/SubNavbar";
 import Home from "./components/Home/Home";
 import BoardDetail from "./components/BoardDetail/BoardDetail";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 // HomePage moved outside App to avoid re-renders breaking input focus
