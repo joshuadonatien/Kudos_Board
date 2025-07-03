@@ -174,7 +174,7 @@ function SubNavbar({
                 </select>
               </div>
 
-              <label htmlFor="newBoardAuthor">Author (optional)</label>
+              <label htmlFor="newBoardAuthor">Author</label>
               <div className="form-group">
                 <input
                   type="text"

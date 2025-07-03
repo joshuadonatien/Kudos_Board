@@ -11,8 +11,9 @@
     left: 0;
     bottom: 0;
     width: 100vw;
-    margin-top: 20px; /* Remove margin-top so it doesn't float above the bottom */
+    margin-top: 1rem; /* Remove margin-top so it doesn't float above the bottom */
     z-index: 100;
+
 }
 
 .board-title-board {
