@@ -139,7 +139,7 @@ function BoardDetail() {
             />
           ))
         ) : (
-          <p className="message-group no-cards-message">
+          <p id="no-cards-message">
             No cards yet. Click "Create a Card" to add one!
           </p>
         )}

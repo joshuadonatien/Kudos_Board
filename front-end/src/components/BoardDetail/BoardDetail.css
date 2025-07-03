@@ -46,15 +46,19 @@
   margin-left: 0.5rem;
 }
 
-.cards-list:not.no-cards-message{
+.cards-list {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+  justify-content: center;
   font-family: "DM Sans", sans-serif;
-  margin-left: 1rem;
+  padding: 1rem;
+  max-width: 1200px; /* Optional: limit width to keep grid centered */
+  margin-left: auto;
+  margin-right: auto;
 }
-.no-cards-message {
+#no-cards-message {
   font-family: "DM Sans", sans-serif;
   font-size: 1.4rem;
   margin-bottom: 4rem;
@@ -64,7 +68,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 /* Create New Card Modal */
@@ -76,6 +80,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 }
 
 .create-card-form {
@@ -85,12 +90,42 @@
   /* align-items: center; */
 }
 
+#cardTitle {
+  margin-left: 0.3rem;
+  width: 30rem;
+}
+
+#cardDescription {
+  margin-left: 0.3rem;
+}
+#searchGifs {
+  margin-left: 0.3rem;
+}
+
+#gifUrl {
+  margin-left: 0.3rem;
+  margin-right: 0.1rem;
+}
+#cardOwner {
+  margin-left: 0.3rem;
+}
 .gif-search-btn {
   background-color: #ef7676;
+  border-color: #010101;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+  font-size: 1rem;
 }
 
 .copy-gif-url-btn {
   background-color: #ef7676;
+  border-color: #010101;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
 }
 
 .create-card-submit-btn {
@@ -100,14 +135,11 @@
   margin-bottom: 2rem;
   margin-right: 1rem;
   margin-top: 1rem;
+  font-size: 1rem;
 }
 
 .close-button.create-modal {
   position: absolute;
+  right: 36.5rem;
+  top: 13.5rem;
 }
-
-/* .create-card-section.board-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
