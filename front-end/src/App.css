@@ -15,3 +15,39 @@ h1 {
   padding-top: 1.5rem;
   font-size: 4rem;
 }
+
+
+.dark-mode {
+  background: #18181b !important;
+  color: #f3f4f6 !important;
+}
+
+.dark-mode .row {
+  color: black;
+}
+
+.dark-mode .SubNavBar {
+  color: black;
+}
+
+.dark-mode .BoardCard,
+.dark-mode .footer,
+.dark-mode .create-board-modal-content,
+.dark-mode .create-card-modal-content {
+  background: #23272f !important;
+  color: #f3f4f6 !important;
+}
+
+.dark-mode input,
+.dark-mode select,
+.dark-mode textarea {
+  background: #2d2d34 !important;
+  color: #f3f4f6 !important;
+  border-color: #444 !important;
+}
+
+.dark-mode button {
+  /* background: #333 !important; */
+  color: #000000 !important;
+  border-color: #444 !important;
+}
