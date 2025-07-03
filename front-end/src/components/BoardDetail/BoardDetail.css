@@ -46,22 +46,25 @@
   margin-left: 0.5rem;
 }
 
-.no-cards-message {
-  font-family: "DM Sans", sans-serif;
-  font-size: 1.4rem;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.cards-list {
+.cards-list:not.no-cards-message{
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   font-family: "DM Sans", sans-serif;
-  margin-left:1rem;
+  margin-left: 1rem;
+}
+.no-cards-message {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: aliceblue;
 }
 
 /* Create New Card Modal */

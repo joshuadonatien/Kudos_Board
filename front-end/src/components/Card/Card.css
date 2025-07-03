@@ -27,3 +27,15 @@
     margin-top:1rem;
     font-size: 1.5rem;
 }
+
+.card-description{
+    margin-bottom: 0.5rem;
+}
+
+.card-image{
+    width:17rem
+}
+
+.card-owner{
+    margin-top: 0.5rem;
+}

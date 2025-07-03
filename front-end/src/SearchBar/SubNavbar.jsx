@@ -165,7 +165,7 @@ function SubNavbar({
                   <option value="">Select a category</option>
                   {/* Filter out "All" category if it's not a real category for new boards */}
                   {categories
-                    .filter((cat) => cat !== "All ")
+                    .filter((cat) => cat !== "All " && cat !=="Recent" )
                     .map((cat) => (
                       <option key={cat} value={cat}>
                         {cat}
