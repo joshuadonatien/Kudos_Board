@@ -165,6 +165,7 @@ function App() {
           </Routes>
         </main>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
