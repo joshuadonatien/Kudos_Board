@@ -64,8 +64,9 @@ button {
 .create-button {
   background-color: #ef7676;
   border-color: #010101;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 1rem;
+  box-shadow: 3px 3px rgb(234, 234, 234);
 }
 .all button {
   background-color: #fad9fd;
@@ -145,13 +146,6 @@ button {
   font-size: 1rem;
 }
 
-.select-recent {
-  background-color: #fff9c4;
-  border-color: #ebe6b5;
-  border-width: 0.2rem;
-  font-weight: 500;
-  font-size: 1rem;
-}
 
 .select-celebration {
   background-color: #cff5e7;
@@ -276,6 +270,6 @@ label {
   justify-content: center;
   align-items: center;
 }
-.stars{
-  color:red;
+.stars {
+  color: red;
 }

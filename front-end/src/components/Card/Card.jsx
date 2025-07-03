@@ -30,9 +30,13 @@ function Card({ card, onDelete, onUpvote }) {
 
       <div className="card-actions">
         <button onClick={() => onUpvote(card.card_id)} className="upvote-btn">
+         <img src="/assets/thumbs-up.gif" alt="" className="icon" />
           Upvote: {card.upvotes || 0}
         </button>
-        <button onClick={() => onDelete(card.card_id)} className="delete-btn">
+        <button onClick={() => onDelete(card.card_id)} className="delete-btn-card">
+          <img src="/assets/delete.gif" alt="" className="icon" />
+
+
           Delete
         </button>
       </div>

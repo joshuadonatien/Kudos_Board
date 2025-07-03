@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./SubNavbar.css"; // This import caused a "Could not resolve" error.
 
+
 // Added onCreateBoard prop
 function SubNavbar({
   activeCategory,
