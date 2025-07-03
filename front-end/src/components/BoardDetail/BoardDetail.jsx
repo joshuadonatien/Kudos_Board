@@ -116,7 +116,7 @@ function BoardDetail() {
       </button>
 
       {/* Board Header */}
-      <div className="board-header top">
+      <div className="board-header-top">
         <h3 className="board-title-board">{board.title}</h3>
         <p className={`board-category-board ${board.category}`}>
           {board.category}
