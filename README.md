@@ -137,7 +137,7 @@ Submitted by: **Joshua Donatien**
 
 ### Walkthrough Video
 
-<div style="position: relative; padding-bottom: 81.94233687405159%; height: 0;"><iframe src="https://www.loom.com/embed/51aeeb5e4313499ca04d3755a66d083d?sid=42cc0633-0a50-44fb-a714-fc81bccf819a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+"https://www.loom.com/embed/51aeeb5e4313499ca04d3755a66d083d?sid=42cc0633-0a50-44fb-a714-fc81bccf819a" 
 
 ### Reflection
 
