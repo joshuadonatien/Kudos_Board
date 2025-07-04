@@ -56,8 +56,6 @@ function App() {
 
   // Fetch boards on mount
   useEffect(() => {
-    console.log("GRABBING THE BOARDS");
-    console.log(boards.data);
     const fetchBoards = async () => {
       try {
         setIsFetchingBoards(true);
@@ -91,8 +89,8 @@ function App() {
     }
 
     // Search matches either the live input or the submitted query
-    if (searchInputValue.trim()) {
-      const q = searchInputValue.toLowerCase();
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
       currentBoards = currentBoards.filter((board) =>
         board.title.toLowerCase().includes(q)
       );
@@ -155,11 +153,11 @@ function App() {
             borderRadius: "1rem",
             border: "none",
             background: darkMode ? "#333" : "#eee",
-            color: darkMode ? "#fff" : "#222",
+            color: darkMode ? "#FFFFFF" : "#222",
             cursor: "pointer",
           }}
         >
-          {darkMode ? "⏾" : "☼"}
+          {darkMode ? "🌙" : "☼"}
         </button>
         <main>
           <Routes>
