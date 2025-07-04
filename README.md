@@ -151,12 +151,12 @@ If there was more time, some of the features that would have been implemented in
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Some things that went well was for the project and presentation to be solid. Some things that could be improved upon are different css aspects.
+Some things that went well was for the project and presentation to be solid. Some things that could be improved upon are different css aspects such as making sure things are aligned, same sized cards, etc.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+none
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to everyone in the cohort and the instructors for their help!
